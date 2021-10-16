@@ -1,0 +1,44 @@
+name: sonuspresto
+description: >
+  A bare-bones music player.
+  Intended to utilize a filesystem to browse your music instead of automatically grouping by artist, album or genre.
+  Focused on gesture controls.
+  Supports CUE sheets, M3U playlists and Internet radio.
+
+version: 0.1.0+3
+
+environment:
+  sdk: ">=2.14.4 <3.0.0"
+  flutter: ">=2.5.3 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  just_audio: 0.9.13
+  audio_service:
+    git: # TODO: move to the upstream when a fix for https://github.com/ryanheise/audio_service/issues/836 is released
+      url: https://github.com/z80maniac/audio_service_fixed.git
+      ref: 3d59ae81baaa088c145cfbbc954e3a4d5c85ec39
+      path: audio_service
+  audio_session: 0.1.6+1
+  shared_preferences: 2.0.8
+  flex_color_scheme: 3.0.1
+  provider: 6.0.1
+  scrollable_positioned_list: 0.2.2
+  flutter_html: 2.1.5
+  super_tooltip: 1.0.1
+  url_launcher: 6.0.12
+  package_info_plus: 1.3.0
+  intl: 0.17.0
+
+dev_dependencies:
+  flutter_lints: 1.0.4
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+publish_to: "none"

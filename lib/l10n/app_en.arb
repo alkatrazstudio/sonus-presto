@@ -1,0 +1,85 @@
+{
+  "btnCancel": "Cancel",
+  "btnOk": "OK",
+
+  "alertChangeRootTitle": "Change the root folder?",
+  "alertChangeRootBtnChange": "Change",
+
+  "showcaseFileInfo": "Tap here to locate this file",
+  "showcaseFolderScroller": "This is a current folder contents.\n\nLong press on a folder to play all files in it (recursively, including all contained playlists).\n\nSwipe left or right to navigate within the history.",
+  "showcaseTitle": "This is the path to the current folder relative to the root folder.\n\nIt can be swiped left or right if it does not fit the screen width.",
+  "showcaseControlSlider": "Tap this button to play/pause.\n\nSwipe left/right to play the next/previous track.\n\nSwipe and hold to fast forward/rewind.\n\nTap and hold to stop the current track and rewind it to the beginning.",
+  "showcaseOptionsPopup": "Tap here to show the available options",
+
+  "alertSelectRootText": "You will now need to select a folder with your music. {appTitle} will only operate within this root folder (and its subfolders). You can change this root folder later.",
+  "@alertSelectRootText": { "placeholders": { "appTitle": { "type": "String" } } },
+
+  "localeSelectorLabel": "Language",
+  "localeSelectorDefault": "<System-defined>",
+
+  "optionsPopupBtnChangeRoot": "Change the root folder",
+  "optionPopupBtnHelp": "Help",
+
+  "schemeSystem": "System (light/dark)",
+  "schemeSystemBlack": "System (light/black)",
+  "schemeLight": "Light",
+  "schemeDark": "Dark",
+  "schemeBlack": "Black",
+  "schemeLabel": "Theme",
+
+  "helpManual": "Manual",
+
+  "helpManualStart": "Start",
+  "helpManualStartDetails": "{appTitle} plays your music using your folders, not tags.",
+  "@helpManualStartDetails": { "placeholders": { "appTitle": { "type": "String" } } },
+  "helpManualStartSelectRoot": "When {appTitle} first starts, you need to select a root folder with your music. {appTitle} will only operate within this root folder (and its subfolders)",
+  "@helpManualStartSelectRoot": { "placeholders": { "appTitle": { "type": "String" } } },
+  "helpManualStartChangeRoot": "You can change this folder later in the options popup (see below).",
+
+  "helpManualMain": "Main window",
+  "helpManualMainDetails": "The main area is like a file browser, but you can play your music files there.",
+  "helpManualMainSwipeRight": "Swipe right to go up one folder.",
+  "helpManualMainSwipeLeft": "Swipe left to go the lower level folder you've just navigated from.",
+  "helpManualMainPlaylistFolders": "You can open M3U playlists and CUE sheets as folders.",
+  "helpManualMainLongPress": "Long press on a folder/CUE/playlist to play all files in it. The files will be added recursively, including all contained playlists. However each file will be added only once (for example, in case if it's referenced from two playlists).",
+
+  "helpManualTitle": "Title bar",
+  "helpManualTitleDetails": "The title bar contains the path to the current folder relative to the root folder. If the root folder is currently displayed then the title shows the name of the root folder.",
+  "helpManualTitleSwipe": "It can be swiped left or right if it does not fit the screen.",
+
+  "helpManualPlayback": "Playback control",
+  "helpManualPlaybackDetails": "The playback is controlled by a single multi-purpose button at the bottom center.",
+  "helpManualPlaybackTap": "Tap it to start or pause playback.",
+  "helpManualPlaybackSwipe": "Swipe it left or right to start the next or previous track.",
+  "helpManualPlaybackSwipeHold": "Swipe and hold it to fast forward or rewind.",
+  "helpManualPlaybackTapHold": "Tap and hold that button to stop the current track and rewind it to the beginning.",
+
+  "helpManualOptions": "Options popup",
+  "helpManualOptionsDetails": "Tapping the button in the bottom right corner will open a popup with application settings.",
+  "helpManualOptionsLocateFile": "You can locate the currently playing file by clicking on its info at the top of the popup.",
+
+  "helpAbout": "About",
+  "helpAboutWebsite": "Website",
+  "helpAboutIssues": "File a bug report",
+  "helpAboutChangelog": "Changelog",
+  "helpAboutBuildDate": "Build date",
+  "helpAboutGitHash": "Git hash",
+  "helpAboutPackageName": "Package name",
+  "helpAboutBuildSignature": "Build signature",
+  "helpAboutBuildNumber": "Build number",
+  "helpAboutLicense": "License",
+  "helpAboutAuthor": "Author",
+  "helpAboutAuthorWebsite": "Author's website",
+
+  "helpLicenses": "3rd party",
+  "helpLicensesLibraries": "Libraries",
+  "helpLicensesLibrariesDetails": "Below is the list of all libraries that are directly used by {appTitle}. These libraries can use some other libraries. Tap on a library name to go to its website. Tap on a license name to read the license text online.",
+  "@helpLicensesLibrariesDetails": { "placeholders": { "appTitle": { "type": "String" } } },
+  "helpLicensesHeaderLibrary": "Library",
+  "helpLicensesHeaderLicense": "License",
+
+  "helpLicensesAssets": "Assets",
+  "helpLicensesAssetsDetails": "Below is the list of all assets that are directly used by {appTitle}. Some libraries that are used in {appTitle} may contain and/otr use other assets. Tap on an asset name to go to its website. Tap on a license name to read the license text online.",
+  "@helpLicensesAssetsDetails": { "placeholders": { "appTitle": { "type": "String" } } },
+  "helpLicensesHeaderAsset": "Asset"
+}
