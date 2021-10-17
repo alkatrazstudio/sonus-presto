@@ -258,9 +258,9 @@ class HomePageState extends State<HomePage> {
     );
 
     await ShowcaseUtil.showForContext(
-        key: HomePage.titleShowcaseKey,
-        text: L(context).showcaseTitle,
-        tooltipDirection: TooltipDirection.down
+      key: HomePage.titleShowcaseKey,
+      text: L(context).showcaseTitle,
+      tooltipDirection: TooltipDirection.down
     );
 
     await ShowcaseUtil.showForContext(
