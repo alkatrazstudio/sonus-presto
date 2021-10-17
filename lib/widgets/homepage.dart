@@ -21,7 +21,16 @@ import '../widgets/blocking_spinner.dart';
 import '../widgets/control_pane.dart';
 import '../widgets/folder_scroller.dart';
 import '../widgets/future_with_spinner.dart';
+import '../widgets/options_popup.dart';
 import '../widgets/progress_bar.dart';
+
+class NoRootDirAccess implements Exception {
+  late final String message;
+
+  NoRootDirAccess(Object? parent) {
+    message = parent?.toString() ?? 'N/A';
+  }
+}
 
 class HomePage extends StatefulWidget {
   const HomePage();
@@ -84,7 +93,11 @@ class HomePageState extends State<HomePage> {
         throw Error();
     } catch(e) {
       await rootDirAlert(context);
-      dir = await DocumentTree.requestAccess();
+      try {
+        dir = await DocumentTree.requestAccess();
+      } catch(e) {
+        throw NoRootDirAccess(e);
+      }
       rootPath = dir.uri;
       await Prefs.remove(HomePage.prefCurDir);
       await Prefs.remove(HomePage.prefCurFile);
@@ -314,7 +327,41 @@ class HomePageState extends State<HomePage> {
                 )
               ]
             );
-          }
+          },
+          errorWidgetFunc: (err) {
+            return Padding(
+              padding: const EdgeInsets.all(10),
+              child: err is NoRootDirAccess
+                ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(L(context).rootDirNoAccessErr),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(L(context).rootDirNoAccessDetails(err.message)),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              OptionsPopup.resetRoot();
+                            },
+                            child: Text(
+                              L(context).rootDirNoAccessBtn,
+                              textAlign: TextAlign.center
+                            )
+                          )
+                        ]
+                      )
+                    )
+                  ]
+                )
+                : Text(err?.toString() ?? 'N/A')
+            );
+          },
         )
       )
     );

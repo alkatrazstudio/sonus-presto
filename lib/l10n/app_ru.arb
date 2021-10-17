@@ -13,6 +13,10 @@
 
   "alertSelectRootText": "Сейчас вам надо выбрать корневую папку с музыкой. {appTitle} будет работать только в пределах этой корневой папки (и подпапок). Вы можете изменить эту корневую папку позже.",
 
+  "rootDirNoAccessErr": "Корневая папка не была задана, либо доступ к ней запрещён.",
+  "rootDirNoAccessDetails": "Подробности: {details}",
+  "rootDirNoAccessBtn": "Задать корневую папку",
+
   "localeSelectorLabel": "Language/язык",
   "localeSelectorDefault": "<Задан системой>",
 

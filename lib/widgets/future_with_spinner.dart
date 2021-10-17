@@ -9,10 +9,12 @@ class FutureWithSpinner<T> extends StatelessWidget
 {
   final Future<T> future;
   final Widget Function(T data) childFunc;
+  final Widget Function(Object? error)? errorWidgetFunc;
 
   const FutureWithSpinner({
     required this.future,
-    required this.childFunc
+    required this.childFunc,
+    this.errorWidgetFunc
   });
 
   @override
@@ -24,7 +26,7 @@ class FutureWithSpinner<T> extends StatelessWidget
           if (snapshot.hasData && data != null) {
             return childFunc(data);
           } else if(snapshot.hasError) {
-            return Text(snapshot.error.toString());
+            return errorWidgetFunc == null ? Text(snapshot.error.toString()) : errorWidgetFunc!(snapshot.error);
           }
           return const LoadingIndicator();
         }

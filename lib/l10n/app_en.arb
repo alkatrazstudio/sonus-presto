@@ -14,6 +14,11 @@
   "alertSelectRootText": "You will now need to select a folder with your music. {appTitle} will only operate within this root folder (and its subfolders). You can change this root folder later.",
   "@alertSelectRootText": { "placeholders": { "appTitle": { "type": "String" } } },
 
+  "rootDirNoAccessErr": "The root folder was not selected, or it is inaccessible.",
+  "rootDirNoAccessDetails": "Details: {details}",
+  "@rootDirNoAccessDetails": { "placeholders": { "details": { "type": "String" } } },
+  "rootDirNoAccessBtn": "Set the root folder",
+
   "localeSelectorLabel": "Language",
   "localeSelectorDefault": "<System-defined>",
 

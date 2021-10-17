@@ -49,7 +49,7 @@ class OptionsPopup extends StatelessWidget {
     return basename(dirname(filename));
   }
 
-  void resetRoot() async {
+  static void resetRoot() async {
     await audioHandler.stop();
     audioHandler.updateQueueFromFolderItems([]);
     audioHandler.mediaItem.add(null);
