@@ -56,6 +56,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   late FolderItem rootDirItem = FolderItem.invalid;
   Future<bool>? initFuture;
+  var isError = false;
 
   static Future rootDirAlert(BuildContext context) async {
     if(await Prefs.getBool(HomePage.prefRootDirAlertShown))
@@ -278,9 +279,12 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(context) {
     initFuture ??= init(context);
+    initFuture!.catchError((Object _) => isError = true);
 
     return WillPopScope(
       onWillPop: () async {
+        if(isError)
+          return true;
         var dirModel = context.read<DirModel>();
         var newDirItem = dirModel.curDirItem.parent();
         if(!newDirItem.isChildOf(rootDirItem))
