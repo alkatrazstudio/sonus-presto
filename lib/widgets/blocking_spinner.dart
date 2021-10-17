@@ -44,8 +44,8 @@ class BlockingSpinner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => model,
+    return ChangeNotifierProvider<BlockingSpinnerModel>.value(
+      value: model,
       child: Builder(
         builder: (context) {
           var model = context.watch<BlockingSpinnerModel>();
