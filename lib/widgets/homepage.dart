@@ -297,13 +297,11 @@ class HomePageState extends State<HomePage> {
           title: FutureBuilder<bool>(
             future: initFuture,
             builder: (context, snapshot) {
-              if(!snapshot.hasData)
-                return const SizedBox.shrink();
               return SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 reverse: true,
                 key: HomePage.titleShowcaseKey,
-                child: Text(title(context.watch<DirModel>().curDirItem))
+                child: Text(snapshot.hasData ? title(context.watch<DirModel>().curDirItem) : appTitle)
               );
             }
           )
