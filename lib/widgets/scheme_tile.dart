@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 class SchemeTile extends StatelessWidget {
-  static const double boxWidth = 35;
+  static const double boxWidth = 70;
   static const double padding = 5;
-  static const double fullWidth = boxWidth * 2 + padding * 2;
+  static const double fullWidth = boxWidth + padding * 2;
 
   const SchemeTile({
     required this.scheme,
@@ -34,45 +34,12 @@ class SchemeTile extends StatelessWidget {
         color: isCurrent ? Theme.of(context).highlightColor : Colors.transparent,
         child: Padding(
           padding: const EdgeInsets.all(SchemeTile.padding),
-          child: Column(
-            children: [
-              Row (
-                children: [
-                  SizedBox(
-                    width: SchemeTile.boxWidth,
-                    height: SchemeTile.boxWidth,
-                    child: Container(
-                      color: colors(context).primary
-                    )
-                  ),
-                  SizedBox(
-                    width: SchemeTile.boxWidth,
-                    height: SchemeTile.boxWidth,
-                    child: Container(
-                      color: colors(context).primaryVariant
-                    )
-                  )
-                ]
-              ),
-              Row (
-                children: [
-                  SizedBox(
-                    width: SchemeTile.boxWidth,
-                    height: SchemeTile.boxWidth,
-                    child: Container(
-                      color: colors(context).secondary
-                    ),
-                  ),
-                  SizedBox(
-                    width: SchemeTile.boxWidth,
-                    height: SchemeTile.boxWidth,
-                    child: Container(
-                      color: colors(context).secondaryVariant
-                    )
-                  )
-                ]
-              )
-            ]
+          child: SizedBox(
+            width: SchemeTile.boxWidth,
+            height: SchemeTile.boxWidth,
+            child: Container(
+              color: colors(context).primary
+            )
           )
         )
       )
