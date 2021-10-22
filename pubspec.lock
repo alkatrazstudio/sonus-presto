@@ -12,11 +12,11 @@ packages:
     dependency: "direct main"
     description:
       path: audio_service
-      ref: "3d59ae81baaa088c145cfbbc954e3a4d5c85ec39"
-      resolved-ref: "3d59ae81baaa088c145cfbbc954e3a4d5c85ec39"
+      ref: a8f39d77a32ed4c7f0c9e3af273b7e00c6f48960
+      resolved-ref: a8f39d77a32ed4c7f0c9e3af273b7e00c6f48960
       url: "https://github.com/z80maniac/audio_service_fixed.git"
     source: git
-    version: "0.18.0"
+    version: "0.18.1"
   audio_service_platform_interface:
     dependency: transitive
     description:
@@ -239,7 +239,7 @@ packages:
       name: just_audio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.13"
+    version: "0.9.14"
   just_audio_platform_interface:
     dependency: transitive
     description:
