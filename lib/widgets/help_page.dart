@@ -228,6 +228,7 @@ class HelpPageState extends State<HelpPage> {
           <div style="text-align: center; padding-bottom: 50"><strong><em>v${_h(info.version)}</em></strong></div>
           ''' + _KeyValRow.renderParagraphs([
             _KeyValRow(key: L(context).helpAboutWebsite, val: appBaseUrl, valLink: appBaseUrl),
+            _KeyValRow(key: L(context).helpAboutGooglePlay, val: 'https://play.google.com/store/apps/details?id=${info.packageName}', valLink: 'https://play.google.com/store/apps/details?id=${info.packageName}'),
             _KeyValRow(key: L(context).helpAboutIssues, val: '$appBaseUrl/issues', valLink: '$appBaseUrl/issues'),
             _KeyValRow(key: L(context).helpAboutChangelog, val: '$appBaseUrl/blob/master/CHANGELOG.md', valLink: '$appBaseUrl/blob/master/CHANGELOG.md'),
             _KeyValRow(key: L(context).helpAboutBuildDate, val: buildStr),
