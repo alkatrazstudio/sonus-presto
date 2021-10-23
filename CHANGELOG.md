@@ -1,6 +1,12 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.2.1 (October 23, 2021)
+
+- Fixed a crash when jumping to the next track while the app is closed
+- Removed the flickering of the notification
+
+
 ## v0.2.0 (October 22, 2021)
 
 - Removed useless colors from the theme selector
