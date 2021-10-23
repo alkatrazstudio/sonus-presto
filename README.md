@@ -73,6 +73,13 @@ Here are some quirks:
 ![Options popup and a folder highlight](screenshots/highlight_options.jpg?raw=true "Options popup and a folder highlight")
 
 
+## Download
+
+<a target='_blank' rel='noopener noreferrer' href='https://play.google.com/store/apps/details?id=net.alkatrazstudio.sonuspresto'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width='240'/></a>
+
+Google Play and the Google Play logo are trademarks of Google LLC.
+
+
 ## Build
 
 SonusPresto is made with [Flutter](https://flutter.dev).
