@@ -4,8 +4,8 @@
 import 'package:flutter/foundation.dart';
 
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:collection/collection.dart';
 
-import '../util/collections_ex.dart';
 import '../util/prefs.dart';
 
 enum SchemeVariant {

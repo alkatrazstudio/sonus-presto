@@ -276,7 +276,9 @@ class HelpPageState extends State<HelpPage> {
             _KeyValRow(key: 'PackageInfoPlus', keyLink: 'https://pub.dev/packages/package_info_plus', val: bsd, valLink: bsdUrl),
             _KeyValRow(key: 'FlutterGen', keyLink: 'https://pub.dev/packages/flutter_gen', val: mit, valLink: mitUrl),
             _KeyValRow(key: 'intl', keyLink: ' https://pub.dev/packages/intl', val: bsd, valLink: bsdUrl),
-            _KeyValRow(key: 'flutter_lints', keyLink: 'https://pub.dev/packages/flutter_lints', val: bsd, valLink: bsdUrl)
+            _KeyValRow(key: 'flutter_lints', keyLink: 'https://pub.dev/packages/flutter_lints', val: bsd, valLink: bsdUrl),
+            _KeyValRow(key: 'collection', keyLink: 'https://pub.dev/packages/collection', val: bsd, valLink: bsdUrl),
+            _KeyValRow(key: 'path', keyLink: 'https://pub.dev/packages/path', val: bsd, valLink: bsdUrl)
           ]) + '''
           </tbody>
         </table>

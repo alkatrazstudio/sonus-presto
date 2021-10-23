@@ -4,10 +4,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+import 'package:collection/collection.dart';
+
 import '../folder_items/folder_item.dart';
 import '../models/dir_model.dart';
 import '../util/audio_player_handler.dart';
-import '../util/collections_ex.dart';
 import '../util/listenable_sub.dart';
 import '../util/swift_scroll_physics.dart';
 import '../widgets/folder_view.dart';

@@ -4,6 +4,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 
+import 'package:collection/collection.dart';
 import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:super_tooltip/super_tooltip.dart';
@@ -12,7 +13,6 @@ import '../folder_items/folder_item.dart';
 import '../folder_items/folder_item_directory.dart';
 import '../models/dir_model.dart';
 import '../util/audio_player_handler.dart';
-import '../util/collections_ex.dart';
 import '../util/document_tree.dart';
 import '../util/locale_helper.dart';
 import '../util/prefs.dart';

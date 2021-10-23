@@ -2,19 +2,17 @@
 // 🄯 2021, Alexey Parfenov <zxed@alkatrazstudio.net>
 
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:super_tooltip/super_tooltip.dart';
 
 import '../folder_items/folder_item.dart';
 import '../models/playback_state_model.dart';
-
 import '../util/audio_player_handler.dart';
 import '../util/document_tree.dart';
 import '../util/locale_helper.dart';
 import '../util/showcase_util.dart';
-
 import '../widgets/homepage.dart';
 import '../widgets/help_page.dart';
 import '../widgets/locale_selector.dart';
