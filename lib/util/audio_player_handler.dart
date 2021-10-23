@@ -37,6 +37,20 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
       mediaItem.add(mItem);
       await updateState();
     });
+
+    player.durationStream.listen((duration) async {
+      if(duration == null)
+        return;
+      var mItem = mediaItem.valueOrNull;
+      if(mItem == null)
+        return;
+      var curDuration = mItem.duration;
+      if(curDuration != null && curDuration == duration)
+        return;
+      mItem = mItem.copyWith(duration: duration);
+      mediaItem.add(mItem);
+      await updateState();
+    });
   }
 
   Future<MediaItem> mediaItemWithDuration(MediaItem mItem) async {
@@ -268,9 +282,6 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
       const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children)
     ) {
         player.seek(const Duration(), index: i);
-        var resultDuration = player.duration;
-        if(resultDuration != null)
-          duration = resultDuration;
     } else {
       var resultDuration = await player.setAudioSource(playlist, initialIndex: i);
       if(resultDuration != null)
