@@ -3,6 +3,7 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'package:collection/collection.dart';
 import 'package:path/path.dart';
 
 import 'package:audio_service/audio_service.dart';
@@ -10,7 +11,6 @@ import 'package:audio_session/audio_session.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../folder_items/folder_item.dart';
-import '../util/collections_ex.dart';
 
 late AudioPlayerHandler audioHandler;
 
@@ -260,9 +260,23 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     var playlistItems = folderItems.map((item) => item.audioSource()).toList();
     var playlist = ConcatenatingAudioSource(children: playlistItems);
     var playlistItem = playlistItems[i];
-    var playlistItemDuration = durationFromAudioSource(playlistItem);
-    var duration = await player.setAudioSource(playlist, initialIndex: i);
-    duration ??= playlistItemDuration;
+    var duration = durationFromAudioSource(playlistItem);
+
+    var curAudioSource = player.audioSource;
+    if(
+      curAudioSource is ConcatenatingAudioSource &&
+      const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children)
+    ) {
+        player.seek(const Duration(), index: i);
+        var resultDuration = player.duration;
+        if(resultDuration != null)
+          duration = resultDuration;
+    } else {
+      var resultDuration = await player.setAudioSource(playlist, initialIndex: i);
+      if(resultDuration != null)
+        duration = resultDuration;
+    }
+
     if(duration != null) {
       if(playlistItem is ProgressiveAudioSource)
         playlistItem.duration = duration;
