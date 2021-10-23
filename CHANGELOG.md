@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.2.2 (October 23, 2021)
+
+- Fixed duration detection
+
+
 ## v0.2.1 (October 23, 2021)
 
 - Fixed a crash when jumping to the next track while the app is closed
