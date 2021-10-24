@@ -66,11 +66,11 @@ Here are some quirks:
 
 ## Screenshots
 
-![Dark theme with a regular music track](screenshots/dark_track.jpg?raw=true "Dark theme and a regular music track")
+![Dark theme with a regular music track](screenshots/dark_track.png?raw=true "Dark theme and a regular music track")
 
-![Light theme with Internet radio](screenshots/light_radio.jpg?raw=true "Light theme and Internet radio")
+![Light theme with Internet radio](screenshots/light_radio.png?raw=true "Light theme and Internet radio")
 
-![Options popup and a folder highlight](screenshots/highlight_options.jpg?raw=true "Options popup and a folder highlight")
+![Options popup and a folder highlight](screenshots/highlight_options.png?raw=true "Options popup and a folder highlight")
 
 
 ## Download
