@@ -66,7 +66,7 @@ Here are some quirks:
 
 ## Screenshots
 
-<img src="screenshots/dark_track.png?raw=true" alt="Dark theme with a regular music track" title="Dark theme with a regular music track" width="250" /> <img src="screenshots/highlight_options.png?raw=true" alt="Light theme with Internet radio" title="Light theme with Internet radio" width="250" /> <img src="screenshots/light_radio.png?raw=true" alt="Options popup and a folder highlight" title="Options popup and a folder highlight" width="250" />
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png?raw=true" alt="Dark theme with a regular music track" title="Dark theme with a regular music track" width="250" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2_en-US.png?raw=true" alt="Options popup and a folder highlight" title="Options popup and a folder highlight" width="250" /> <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_en-US.png?raw=true" alt="Light theme with Internet radio" title="Light theme with Internet radio" width="250" />
 
 
 ## Download

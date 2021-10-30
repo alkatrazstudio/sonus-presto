@@ -1,0 +1,2 @@
+* Fixed a crash when jumping to the next track while the app is closed
+* Removed the flickering of the notification

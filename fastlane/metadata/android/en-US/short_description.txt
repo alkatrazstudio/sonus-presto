@@ -1,0 +1,1 @@
+A bare-bones music player. Uses a filesystem to browse your music.

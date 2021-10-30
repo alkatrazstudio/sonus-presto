@@ -1,0 +1,2 @@
+* Removed useless colors from the theme selector
+* Added Google Play link
