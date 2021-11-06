@@ -71,7 +71,7 @@ Here are some quirks:
 
 ## Download
 
-<a target='_blank' rel='noopener noreferrer' href='https://play.google.com/store/apps/details?id=net.alkatrazstudio.sonuspresto'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width='240'/></a>
+<a target='_blank' rel='noopener noreferrer nofollow' href='https://play.google.com/store/apps/details?id=net.alkatrazstudio.sonuspresto'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width='240'/></a>
 
 Google Play and the Google Play logo are trademarks of Google LLC.
 
