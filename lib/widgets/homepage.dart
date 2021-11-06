@@ -39,6 +39,8 @@ class HomePage extends StatefulWidget {
   static const prefCurDir = 'curDir';
   static const prefCurFile = 'curFile';
   static const prefRootDirAlertShown = 'rootDirAlertShown';
+  static const prefQueueDir = 'queueDir';
+  static const prefQueueDirRecursive = 'queueDirRecursive';
 
   static const titleShowcaseKey = ShowcaseGlobalKey('title', 1);
   static const folderScrollerShowcaseKey = ShowcaseGlobalKey('folderScroller', 1);
@@ -50,6 +52,8 @@ class HomePage extends StatefulWidget {
     await Prefs.remove(prefRootDir);
     await Prefs.remove(prefCurDir);
     await Prefs.remove(prefCurFile);
+    await Prefs.remove(prefQueueDir);
+    await Prefs.remove(prefQueueDirRecursive);
   }
 }
 
@@ -139,9 +143,10 @@ class HomePageState extends State<HomePage> {
     var curFileItem = await FolderItem.fromUri(curFilePath);
     if(curFileItem != null && curFileItem.isChildOf(rootDirItem) && !curFileItem.isContainer() && await curFileItem.exists()) {
       var startPromise = AudioPlayerHandler.startServiceIfNeeded();
-      var children = await curFileItem.parent().children();
+      var folderItems = await loadQueue(curFileItem);
+      audioHandler.updateQueueFromFolderItems(folderItems);
       await startPromise;
-      audioHandler.updateQueueFromFolderItems(children);
+
       var mediaItem = curFileItem.mediaItem();
       try {
         await audioHandler.prepareMediaItem(mediaItem);
@@ -171,6 +176,36 @@ class HomePageState extends State<HomePage> {
     return true;
   }
 
+  Future<List<FolderItem>> loadQueue(FolderItem curFileItem) async {
+    var queueDirUri = await Prefs.getString(HomePage.prefQueueDir);
+    var queueDir = await FolderItem.fromUri(queueDirUri);
+    if(
+      queueDir != null &&
+      queueDir.isChildOf(rootDirItem) &&
+      queueDir.isContainer() &&
+      await queueDir.exists()
+    ) {
+      var queueDirRecursive = await Prefs.getBool(HomePage.prefQueueDirRecursive);
+      if(queueDirRecursive) {
+        if(curFileItem.isChildOf(queueDir)) {
+          var children = await queueDir.recursiveChildren().toList();
+          return children;
+        }
+      } else {
+        if(curFileItem.parent().uri() == queueDir.uri()) {
+          var children = await queueDir.children();
+          return children;
+        }
+      }
+    }
+
+    queueDir = curFileItem.parent();
+    var children = await curFileItem.parent().children();
+    await Prefs.setString(HomePage.prefQueueDir, queueDir.uri());
+    await Prefs.setBool(HomePage.prefQueueDirRecursive, false);
+    return children;
+  }
+
   String title(FolderItem dirItem) {
     var folders = <String>[];
     var curDirPart = dirItem;
@@ -198,8 +233,11 @@ class HomePageState extends State<HomePage> {
         await AudioPlayerHandler.startServiceIfNeeded();
         if(item.uri() != audioHandler.mediaItem.valueOrNull?.id) {
           var mediaItem = audioHandler.queue.valueOrNull?.firstWhereOrNull((mItem) => mItem.id == item.uri());
-          if(mediaItem == null)
+          if(mediaItem == null) {
             audioHandler.updateQueueFromFolderItems(siblings);
+            await Prefs.setString(HomePage.prefQueueDir, item.parent().uri());
+            await Prefs.setBool(HomePage.prefQueueDirRecursive, false);
+          }
           await audioHandler.playFromMediaId(item.uri());
         } else {
           if(audioHandler.playbackState.valueOrNull?.playing ?? false)
@@ -224,6 +262,8 @@ class HomePageState extends State<HomePage> {
         await AudioPlayerHandler.startServiceIfNeeded();
         audioHandler.updateQueueFromFolderItems(items);
         await audioHandler.playFromMediaId(items.first.uri());
+        await Prefs.setString(HomePage.prefQueueDir, item.uri());
+        await Prefs.setBool(HomePage.prefQueueDirRecursive, true);
       }
     );
   }
