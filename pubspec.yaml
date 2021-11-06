@@ -17,7 +17,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  just_audio: 0.9.14
+  just_audio: 0.9.16
   audio_service:
     git: # TODO: move to the upstream when a fix for https://github.com/ryanheise/audio_service/issues/836 is released
       url: https://github.com/z80maniac/audio_service_fixed.git
