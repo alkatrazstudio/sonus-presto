@@ -100,7 +100,7 @@ To build this application do the following:
    so e.g. `./build-bundle.sh` will remove the APK file that was built by `./build-apk.sh`.
 
 
-## Upload to Play Store
+## Upload to Google Play
 
 For uploading production releases this project uses [fastlane](https://fastlane.tools).
 
