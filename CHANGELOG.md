@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.3.0 (November 7, 2021)
+
+- Queue/playlist is now restored on the application startup
+
+
 ## v0.2.2 (October 23, 2021)
 
 - Fixed duration detection
