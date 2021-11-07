@@ -1,6 +1,7 @@
 .*
 !.gitignore
 !/.metadata
+!/.bundle
 
 /build/
 /vendor/
