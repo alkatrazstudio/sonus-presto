@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+### v0.3.1 (November 26, 2021)
+
+- Fixed the handling of media keys
+
+
 ## v0.3.0 (November 7, 2021)
 
 - Queue/playlist is now restored on the application startup

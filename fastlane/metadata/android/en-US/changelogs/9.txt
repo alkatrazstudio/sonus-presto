@@ -1,0 +1,1 @@
+Headset media keys are working again
