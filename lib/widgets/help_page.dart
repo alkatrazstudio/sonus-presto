@@ -179,7 +179,7 @@ class HelpPageState extends State<HelpPage> {
 
   static Tab manualTab() {
     return Tab(
-      label: (context) => L(context).helpManualTitle,
+      label: (context) => L(context).helpManual,
       icon: Icons.help,
       htmlFunc: (context) async => '''
         <h1 style="text-align: center">${_h(L(context).helpManual)}</h1>
