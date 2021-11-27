@@ -1,12 +1,12 @@
 # SonusPresto - CHANGELOG
 
 
-### v0.3.2 (November 27, 2021)
+## v0.3.2 (November 27, 2021)
 
 - Fixed some typos
 
 
-### v0.3.1 (November 26, 2021)
+## v0.3.1 (November 26, 2021)
 
 - Fixed the handling of media keys
 
