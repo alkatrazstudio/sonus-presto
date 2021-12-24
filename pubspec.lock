@@ -7,16 +7,14 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.1"
+    version: "2.8.2"
   audio_service:
     dependency: "direct main"
     description:
-      path: audio_service
-      ref: a8f39d77a32ed4c7f0c9e3af273b7e00c6f48960
-      resolved-ref: a8f39d77a32ed4c7f0c9e3af273b7e00c6f48960
-      url: "https://github.com/z80maniac/audio_service_fixed.git"
-    source: git
-    version: "0.18.1"
+      name: audio_service
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.18.3"
   audio_service_platform_interface:
     dependency: transitive
     description:
@@ -38,20 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.6+1"
-  boolean_selector:
-    dependency: transitive
-    description:
-      name: boolean_selector
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   characters:
     dependency: transitive
     description:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   charcode:
     dependency: transitive
     description:
@@ -108,13 +99,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  fake_async:
-    dependency: transitive
-    description:
-      name: fake_async
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   ffi:
     dependency: transitive
     description:
@@ -147,14 +131,14 @@ packages:
       name: flutter_cache_manager
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.3"
+    version: "3.3.0"
   flutter_html:
     dependency: "direct main"
     description:
       name: flutter_html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.5"
+    version: "2.2.1"
   flutter_layout_grid:
     dependency: transitive
     description:
@@ -188,11 +172,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.23.0+1"
-  flutter_test:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -267,7 +246,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.10"
+    version: "0.12.11"
   meta:
     dependency: transitive
     description:
@@ -358,14 +337,14 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.7"
+    version: "2.0.8"
   path_provider_android:
     dependency: transitive
     description:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.9"
+    version: "2.0.11"
   path_provider_ios:
     dependency: transitive
     description:
@@ -379,14 +358,14 @@ packages:
       name: path_provider_linux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.4"
   path_provider_macos:
     dependency: transitive
     description:
       name: path_provider_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.4"
   path_provider_platform_interface:
     dependency: transitive
     description:
@@ -421,7 +400,7 @@ packages:
       name: platform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.2"
+    version: "3.1.0"
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -470,7 +449,7 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.9"
+    version: "2.0.11"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -538,14 +517,14 @@ packages:
       name: sqflite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0+4"
+    version: "2.0.1"
   sqflite_common:
     dependency: transitive
     description:
       name: sqflite_common
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1+1"
+    version: "2.1.0"
   stack_trace:
     dependency: transitive
     description:
@@ -553,13 +532,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
-  stream_channel:
-    dependency: transitive
-    description:
-      name: stream_channel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   string_scanner:
     dependency: transitive
     description:
@@ -588,13 +560,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  test_api:
-    dependency: transitive
-    description:
-      name: test_api
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.2"
   tuple:
     dependency: transitive
     description:
@@ -615,7 +580,21 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.15"
+    version: "6.0.17"
+  url_launcher_android:
+    dependency: transitive
+    description:
+      name: url_launcher_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.13"
+  url_launcher_ios:
+    dependency: transitive
+    description:
+      name: url_launcher_ios
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.0.13"
   url_launcher_linux:
     dependency: transitive
     description:
@@ -643,7 +622,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.5"
   url_launcher_windows:
     dependency: transitive
     description:
@@ -664,28 +643,28 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   video_player:
     dependency: transitive
     description:
       name: video_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.7"
+    version: "2.2.10"
   video_player_platform_interface:
     dependency: transitive
     description:
       name: video_player_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.0"
+    version: "5.0.0"
   video_player_web:
     dependency: transitive
     description:
       name: video_player_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.0.5"
   wakelock:
     dependency: transitive
     description:
@@ -727,35 +706,35 @@ packages:
       name: webview_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.1"
+    version: "2.8.0"
   webview_flutter_android:
     dependency: transitive
     description:
       name: webview_flutter_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.0"
+    version: "2.8.2"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
       name: webview_flutter_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.1"
+    version: "1.8.0"
   webview_flutter_wkwebview:
     dependency: transitive
     description:
       name: webview_flutter_wkwebview
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
+    version: "2.7.1"
   win32:
     dependency: transitive
     description:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.3"
   xdg_directories:
     dependency: transitive
     description:
@@ -771,5 +750,5 @@ packages:
     source: hosted
     version: "5.3.1"
 sdks:
-  dart: ">=2.14.4 <3.0.0"
-  flutter: ">=2.5.3"
+  dart: ">=2.15.1 <3.0.0"
+  flutter: ">=2.8.1"
