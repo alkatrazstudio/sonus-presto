@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.3.3 (December 25, 2021)
+
+- Internal optimizations
+
+
 ## v0.3.2 (November 27, 2021)
 
 - Fixed some typos
