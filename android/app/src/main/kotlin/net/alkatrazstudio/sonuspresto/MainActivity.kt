@@ -41,17 +41,18 @@ class MainActivity: FlutterActivity() {
 
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
             call, result -> try {
+                val arg = call.arguments() ?: ""
                 when (call.method) {
                     "requestAccess" -> requestDocumentTreeAccess(result)
-                    "hasAccess" -> result.success(hasAccessToDocumentTree(call.arguments()))
+                    "hasAccess" -> result.success(hasAccessToDocumentTree(arg))
                     "releaseAccess" -> {
                         releaseDocumentTreeAccess()
                         result.success(null)
                     }
 
-                    "listChildren" -> result.success(listDocumentTreeChildren(call.arguments()))
-                    "getDoc" -> result.success(getDocByUriStr(call.arguments()))
-                    "readLines" -> result.success(readLines(call.arguments()))
+                    "listChildren" -> result.success(listDocumentTreeChildren(arg))
+                    "getDoc" -> result.success(getDocByUriStr(arg))
+                    "readLines" -> result.success(readLines(arg))
 
                     else -> result.notImplemented()
                 }
