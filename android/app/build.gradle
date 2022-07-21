@@ -42,6 +42,9 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    lint {
+        abortOnError false
+    }
 
     if (keystorePropertiesFile.exists()) {
         keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
@@ -70,9 +73,6 @@ android {
         }
     }
 
-    lintOptions {
-        abortOnError false
-    }
 }
 
 flutter {
