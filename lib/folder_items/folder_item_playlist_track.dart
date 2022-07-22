@@ -70,7 +70,7 @@ class FolderItemPlaylistTrack extends FolderItem {
     var title = track.title;
     if(title.isEmpty)
       title = basenameWithoutExtension(DocumentTreeItem.extractName(track.filename));
-    return "${track.numberStr}. $title";
+    return '${track.numberStr}. $title';
   }
 
   @override

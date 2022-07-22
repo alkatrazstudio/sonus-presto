@@ -34,8 +34,8 @@ class OptionsPopup extends StatelessWidget {
     secs = secs - mins * 60;
     var secsStr = secs.toString();
     if(secs < 10)
-      secsStr = '0' + secsStr;
-    var s = mins.toString() + ':' + secsStr;
+      secsStr = '0$secsStr';
+    var s = '$mins:$secsStr';
     return s;
   }
 
@@ -70,8 +70,8 @@ class OptionsPopup extends StatelessWidget {
               }
             ),
             TextButton(
-              child: Text(L(context).alertChangeRootBtnChange),
-              onPressed: resetRoot
+              onPressed: resetRoot,
+              child: Text(L(context).alertChangeRootBtnChange)
             )
           ]
         );
@@ -107,7 +107,7 @@ class OptionsPopup extends StatelessWidget {
                   size: Theme.of(context).textTheme.subtitle2?.fontSize ?? 15
                 ),
                 Text(
-                  ' ' + durationToStr(context.watch<PlaybackStateModel>().duration),
+                  ' ${durationToStr(context.watch<PlaybackStateModel>().duration)}',
                   style: Theme.of(context).textTheme.subtitle2
                 )
               ]

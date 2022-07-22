@@ -51,7 +51,7 @@ class FolderViewItem extends StatelessWidget {
   Widget build(context) {
     var playback = context.watch<PlaybackStateModel>();
     return ListTile(
-      key: Key((FolderViewItem).toString() + ':' + folderItem.uri()),
+      key: Key('$FolderViewItem:${folderItem.uri()}'),
       leading: Icon(icon(playback)),
       visualDensity: VisualDensity(
         horizontal: VisualDensity.minimumDensity,

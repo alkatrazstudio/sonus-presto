@@ -3,7 +3,6 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:super_tooltip/super_tooltip.dart';
 
@@ -30,7 +29,7 @@ class ShowcaseUtil {
 
     var future = Completer<void>();
 
-    await WidgetsBinding.instance?.endOfFrame;
+    await WidgetsBinding.instance.endOfFrame;
 
     if(key.currentWidget == null)
       return;

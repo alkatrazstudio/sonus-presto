@@ -54,6 +54,7 @@ class BlockingSpinner extends StatelessWidget {
 
           return Container(
             color: const Color.fromARGB(128, 0, 0, 0),
+            constraints: const BoxConstraints.expand(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -68,8 +69,7 @@ class BlockingSpinner extends StatelessWidget {
                   )
                 )
               ]
-            ),
-            constraints: const BoxConstraints.expand()
+            )
           );
         }
       )

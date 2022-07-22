@@ -150,9 +150,9 @@ class FolderItemPlaylist extends FolderItem {
   }
 
   PlaylistInfo info() {
-    var _info = PlaylistInfo.info[type];
-    if(_info != null)
-      return _info;
+    var infoRec = PlaylistInfo.info[type];
+    if(infoRec != null)
+      return infoRec;
     throw Exception('Unknown playlist type');
   }
 

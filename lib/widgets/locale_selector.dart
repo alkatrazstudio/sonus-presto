@@ -34,16 +34,16 @@ class LocaleSelectorState extends State<LocaleSelector> {
             value: localeModel.localeCode,
             items: [
               DropdownMenuItem(
-                child: Text(L(context).localeSelectorDefault),
-                value: ''
+                value: '',
+                child: Text(L(context).localeSelectorDefault)
               ),
               const DropdownMenuItem(
-                child: Text('English'),
-                value: 'en'
+                value: 'en',
+                child: Text('English')
               ),
               const DropdownMenuItem(
-                child: Text('Русский (Russian)'),
-                value: 'ru'
+                value: 'ru',
+                child: Text('Русский (Russian)')
               )
             ],
             onChanged: (localeCode) {

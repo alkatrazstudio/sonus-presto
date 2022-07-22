@@ -39,7 +39,7 @@ class FolderScrollerState extends State<FolderScroller> {
       changeDir(DirModel.instance.curDirItem);
     });
     dirItems = [widget.rootDirItem];
-    SchedulerBinding.instance?.endOfFrame.then<void>((value) => changeDir(DirModel.instance.curDirItem));
+    SchedulerBinding.instance.endOfFrame.then<void>((value) => changeDir(DirModel.instance.curDirItem));
   }
 
   @override
@@ -53,7 +53,7 @@ class FolderScrollerState extends State<FolderScroller> {
   late List<FolderItem> dirItems = [];
 
   Future animateToPage(int index) async {
-    await SchedulerBinding.instance?.endOfFrame;
+    await SchedulerBinding.instance.endOfFrame;
     pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 250),

@@ -156,12 +156,12 @@ class ControlSliderState extends State<ControlSlider> {
       },
 
       child: InkWell(
+        onTap: widget.onPlayToggle,
+        onLongPress: widget.onStop,
         child: SizedBox(
           width: 150,
           child: animatedIcon
-        ),
-        onTap: widget.onPlayToggle,
-        onLongPress: widget.onStop
+        )
       )
     );
 

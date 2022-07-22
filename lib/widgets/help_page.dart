@@ -138,9 +138,10 @@ class HelpPageState extends State<HelpPage> {
                       onLinkTap: (url, context, attributes, element) async {
                         if(url == null)
                           return;
-                        if(!await canLaunch(url))
+                        var urlObj = Uri.parse(url);
+                        if(!await canLaunchUrl(urlObj))
                           return;
-                        await launch(url);
+                        await launchUrl(urlObj);
                       }
                     );
                   }
@@ -226,7 +227,7 @@ class HelpPageState extends State<HelpPage> {
         return '''
           <h1 style="text-align: center">${_h(appTitle)}</h1>
           <div style="text-align: center; padding-bottom: 50"><strong><em>v${_h(info.version)}</em></strong></div>
-          ''' + _KeyValRow.renderParagraphs([
+          ${_KeyValRow.renderParagraphs([
             _KeyValRow(key: L(context).helpAboutWebsite, val: appBaseUrl, valLink: appBaseUrl),
             _KeyValRow(key: L(context).helpAboutGooglePlay, val: 'https://play.google.com/store/apps/details?id=${info.packageName}', valLink: 'https://play.google.com/store/apps/details?id=${info.packageName}'),
             _KeyValRow(key: L(context).helpAboutIssues, val: '$appBaseUrl/issues', valLink: '$appBaseUrl/issues'),
@@ -239,7 +240,8 @@ class HelpPageState extends State<HelpPage> {
             _KeyValRow(key: L(context).helpAboutLicense, val: 'GPLv3', valLink: 'https://www.gnu.org/licenses/gpl-3.0.txt'),
             _KeyValRow(key: L(context).helpAboutAuthor, val: 'Алексей Парфёнов (Alexey Parfenov) aka ZXED'),
             _KeyValRow(key: L(context).helpAboutAuthorWebsite, val: 'https://alkatrazstudio.net/', valLink: 'https://alkatrazstudio.net/')
-          ]);
+          ])}
+        ''';
       }
     );
   }
@@ -253,7 +255,7 @@ class HelpPageState extends State<HelpPage> {
 
         <h2>${_h(L(context).helpLicensesLibraries)}</h2>
         <p>${_h(L(context).helpLicensesLibrariesDetails(appTitle))}</p>
-        
+
         <table>
           <thead>
             <tr>
@@ -262,7 +264,7 @@ class HelpPageState extends State<HelpPage> {
             </tr>
           </thead>
           <tbody>
-          ''' + _KeyValRow.renderRows([
+          ${_KeyValRow.renderRows([
             _KeyValRow(key: 'Flutter', keyLink: 'https://flutter.dev', val: bsd, valLink: bsdUrl),
             _KeyValRow(key: 'just_audio', keyLink: 'https://pub.dev/packages/just_audio', val: mit, valLink: mitUrl),
             _KeyValRow(key: 'audio_service', keyLink: 'https://pub.dev/packages/audio_service', val: mit, valLink: mitUrl),
@@ -279,13 +281,13 @@ class HelpPageState extends State<HelpPage> {
             _KeyValRow(key: 'flutter_lints', keyLink: 'https://pub.dev/packages/flutter_lints', val: bsd, valLink: bsdUrl),
             _KeyValRow(key: 'collection', keyLink: 'https://pub.dev/packages/collection', val: bsd, valLink: bsdUrl),
             _KeyValRow(key: 'path', keyLink: 'https://pub.dev/packages/path', val: bsd, valLink: bsdUrl)
-          ]) + '''
+          ])}
           </tbody>
         </table>
-        
+
         <h2>${_h(L(context).helpLicensesAssets)}</h2>
         <p>${_h(L(context).helpLicensesAssetsDetails(appTitle))}</p>
-        
+
         <table>
           <thead>
             <tr>
@@ -294,10 +296,10 @@ class HelpPageState extends State<HelpPage> {
             </tr>
           </thead>
           <tbody>
-          ''' + _KeyValRow.renderRows([
+          ${_KeyValRow.renderRows([
             _KeyValRow(key: 'Music Folder SVG Vector', keyLink: 'https://www.svgrepo.com/svg/5688/music-folder', val: 'CC0', valLink: 'https://creativecommons.org/publicdomain/zero/1.0/legalcode'),
             _KeyValRow(key: 'Material design icons', keyLink: 'https://google.github.io/material-design-icons/', val: 'Apache License 2.0', valLink: 'https://www.apache.org/licenses/LICENSE-2.0.txt')
-          ]) + '''
+          ])}
           </tbody>
         </table>
       '''

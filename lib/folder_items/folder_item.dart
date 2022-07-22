@@ -81,13 +81,13 @@ abstract class FolderItem {
     if(!useChildrenCache())
       return await fetchChildren();
 
-    var _uri = uri();
-    var items = childrenCache[_uri];
+    var uriStr = uri();
+    var items = childrenCache[uriStr];
     if(items != null)
       return items;
 
     items = await fetchChildren();
-    childrenCache[_uri] = items;
+    childrenCache[uriStr] = items;
     return items;
   }
 

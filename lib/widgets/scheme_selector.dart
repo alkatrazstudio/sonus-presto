@@ -35,7 +35,7 @@ class SchemeSelectorState extends State<SchemeSelector> {
 
     final scrollController = ScrollController();
     if(doScroll) {
-      WidgetsBinding.instance?.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         if(scrollController.hasClients) {
           scrollController.animateTo(
               scrollOffset(context, schemeModel.scheme), duration: const Duration(microseconds: 1),
@@ -67,8 +67,8 @@ class SchemeSelectorState extends State<SchemeSelector> {
               DropdownButton<SchemeVariant>(
                 value: schemeModel.schemeVariant,
                 items: variantTitles.entries.map((e) => DropdownMenuItem(
-                  child: Text(e.value),
-                  value: e.key
+                  value: e.key,
+                  child: Text(e.value)
                 )).toList(),
                 onChanged: (v) {
                   v ??= SchemeVariant.system;

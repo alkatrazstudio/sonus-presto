@@ -33,7 +33,7 @@ class FolderView extends StatefulWidget {
     required this.onDirChange,
     required this.onDirLongPress
   }):super(
-    key: PageStorageKey((FolderView).toString() + ':' + dirItem.uri())
+    key: PageStorageKey('$FolderView:${dirItem.uri()}')
   ) {
     entries = dirItem.children();
   }
@@ -67,7 +67,7 @@ class FolderViewState extends State<FolderView> {
     if(i < 0)
       return true;
 
-    await WidgetsBinding.instance?.endOfFrame;
+    await WidgetsBinding.instance.endOfFrame;
 
     if(itemScrollController.isAttached) {
       var scrollToIndex = (i - nVisibleItems / 2 + 1).clamp(0, i).truncate();
@@ -127,7 +127,7 @@ class FolderViewState extends State<FolderView> {
   Widget build(context) {
     var dirModel = context.read<DirModel>();
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) async {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       if(await scrollToItem(dirModel.selectedItem))
         dirModel.resetSelectedItem();
       locateFileSub?.dispose();
