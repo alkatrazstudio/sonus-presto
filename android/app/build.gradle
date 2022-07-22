@@ -29,21 +29,27 @@ def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion flutter.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
-        applicationId "net.alkatrazstudio.sonuspresto"
+        applicationId 'net.alkatrazstudio.sonuspresto'
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-    }
-    lint {
-        abortOnError false
     }
 
     if (keystorePropertiesFile.exists()) {
@@ -72,7 +78,6 @@ android {
             }
         }
     }
-
 }
 
 flutter {
