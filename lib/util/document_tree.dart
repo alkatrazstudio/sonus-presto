@@ -46,6 +46,10 @@ abstract class DocumentTree {
     var lines = (await platform.invokeMethod<List<Object?>?>('readLines', uri))?.cast<String>();
     return lines ?? [];
   }
+
+  static Future<bool> deleteDoc(String uri) async {
+    return await platform.invokeMethod<bool>('deleteDoc', uri) ?? false;
+  }
 }
 
 abstract class DocumentTreeItem {

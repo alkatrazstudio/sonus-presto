@@ -1,6 +1,7 @@
 {
   "btnCancel": "Cancel",
   "btnOk": "OK",
+  "btnDelete": "Delete",
 
   "alertChangeRootTitle": "Change the root folder?",
   "alertChangeRootBtnChange": "Change",
@@ -31,6 +32,9 @@
   "schemeDark": "Dark",
   "schemeBlack": "Black",
   "schemeLabel": "Theme",
+
+  "contextBtnDeleteFile": "Delete the file",
+  "deleteFileConfirmText": "Delete this file?",
 
   "helpManual": "Manual",
 

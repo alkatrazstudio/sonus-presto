@@ -1,6 +1,7 @@
 {
   "btnCancel": "Отмена",
   "btnOk": "OK",
+  "btnDelete": "Удалить",
 
   "alertChangeRootTitle": "Сменить корневую папку?",
   "alertChangeRootBtnChange": "Сменить",
@@ -29,6 +30,9 @@
   "schemeDark": "Тёмная",
   "schemeBlack": "Чёрная",
   "schemeLabel": "Тема",
+
+  "contextBtnDeleteFile": "Удалить файл",
+  "deleteFileConfirmText": "Удалить этот файл?",
 
   "helpManual": "Руководство",
 

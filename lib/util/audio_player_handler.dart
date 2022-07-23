@@ -29,10 +29,18 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     });
 
     player.sequenceStateStream.listen((sequenceState) async {
-      if(sequenceState == null)
+      if(sequenceState == null) {
+        await updateState();
         return;
+      }
 
-      var mItem = queue.valueOrNull![sequenceState.currentIndex];
+      var i = sequenceState.currentIndex;
+      var mItems = queue.valueOrNull!;
+      if(i > (mItems.length - 1)) {
+        await updateState();
+        return;
+      }
+      var mItem = mItems[i];
       mItem = await mediaItemWithDuration(mItem);
       mediaItem.add(mItem);
       await updateState();
@@ -240,6 +248,49 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     var queueItems = items.map((item) => item.mediaItem()).toList();
     folderItems = items;
     queue.add(queueItems);
+  }
+
+  @override
+  Future<void> removeQueueItem(MediaItem mediaItem) async {
+    var curQueue = queue.valueOrNull;
+    if(curQueue == null)
+      return;
+
+    if(!curQueue.contains(mediaItem))
+      return;
+
+    MediaItem? nextMediaItem;
+
+    if(this.mediaItem.valueOrNull?.id == mediaItem.id) {
+      if(playbackState.value.playing) {
+        var curIndex = audioHandler.currentQueueIndex();
+        if(curIndex != null)
+        {
+          if(curIndex < (curQueue.length - 1))
+            nextMediaItem = curQueue[curIndex + 1];
+          else if(curIndex > 0) {
+            nextMediaItem = curQueue[curIndex - 1];
+          }
+        }
+      }
+      await stop();
+      this.mediaItem.add(null);
+    }
+
+    var newQueue = <MediaItem>[];
+    newQueue.addAll(curQueue);
+    newQueue.remove(mediaItem);
+
+    var audioSource = player.audioSource;
+    if(audioSource is ConcatenatingAudioSource) {
+      var folderItemIndex = folderItems.indexWhere((item) => item.uri() == mediaItem.id);
+      if(folderItemIndex >= 0)
+        audioSource.removeAt(folderItemIndex);
+    }
+    await updateQueue(newQueue);
+    if(nextMediaItem != null)
+      await playMediaItem(nextMediaItem);
+    await updateState();
   }
 
   FolderItem? folderItemFromQueue(MediaItem mItem) {

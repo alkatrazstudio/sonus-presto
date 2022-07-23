@@ -30,6 +30,7 @@ class FolderView extends StatefulWidget {
     required this.dirItem,
     this.curFilePath,
     required this.onFileTap,
+    required this.onFileLongPress,
     required this.onDirChange,
     required this.onDirLongPress
   }):super(
@@ -43,6 +44,7 @@ class FolderView extends StatefulWidget {
   final void Function(FolderItem newDirItem) onDirChange;
   final void Function(FolderItem dirItem) onDirLongPress;
   final void Function(FolderItem item, List<FolderItem> siblings) onFileTap;
+  final void Function(FolderItem dirItem) onFileLongPress;
   late final Future<List<FolderItem>> entries;
 
   @override
@@ -119,7 +121,8 @@ class FolderViewState extends State<FolderView> {
 
     return FolderViewItem(
       folderItem: folderItem,
-      onTap: () => widget.onFileTap(folderItem, items)
+      onTap: () => widget.onFileTap(folderItem, items),
+      onLongPress: () => widget.onFileLongPress(folderItem)
     );
   }
 

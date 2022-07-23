@@ -14,18 +14,26 @@ import '../util/swift_scroll_physics.dart';
 import '../widgets/folder_view.dart';
 
 class FolderScroller extends StatefulWidget {
-  const FolderScroller({
+  static final GlobalKey<FolderScrollerState> _key = GlobalKey<FolderScrollerState>();
+
+  FolderScroller({
     required this.rootDirItem,
     required this.onFileTap,
+    required this.onFileLongPress,
     required this.onDirLongPress
-  });
+  }): super(key: _key);
 
   final FolderItem rootDirItem;
   final void Function(FolderItem item, List<FolderItem> siblings) onFileTap;
+  final void Function(FolderItem dirItem) onFileLongPress;
   final void Function(FolderItem dirItem) onDirLongPress;
 
   @override
   State<StatefulWidget> createState() => FolderScrollerState();
+
+  static void reload() {
+    _key.currentState?.reload();
+  }
 }
 
 class FolderScrollerState extends State<FolderScroller> {
@@ -46,6 +54,10 @@ class FolderScrollerState extends State<FolderScroller> {
   void dispose() {
     dirModelListener.dispose();
     super.dispose();
+  }
+
+  void reload() {
+    setState(() {});
   }
 
   final pageController = PageController(initialPage: 0);
@@ -109,6 +121,7 @@ class FolderScrollerState extends State<FolderScroller> {
       curFilePath: audioHandler.mediaItem.valueOrNull?.id,
       onDirChange: changeDir,
       onFileTap: widget.onFileTap,
+      onFileLongPress: widget.onFileLongPress,
       onDirLongPress: widget.onDirLongPress
     );
   }

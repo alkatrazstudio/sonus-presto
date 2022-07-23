@@ -18,6 +18,7 @@ import '../util/locale_helper.dart';
 import '../util/prefs.dart';
 import '../util/showcase_util.dart';
 import '../widgets/blocking_spinner.dart';
+import '../widgets/context_menu.dart';
 import '../widgets/control_pane.dart';
 import '../widgets/folder_scroller.dart';
 import '../widgets/future_with_spinner.dart';
@@ -226,7 +227,7 @@ class HomePageState extends State<HomePage> {
     return fullTitle;
   }
 
-  FolderScroller folderScroller() {
+  FolderScroller folderScroller(BuildContext context) {
     return FolderScroller(
       rootDirItem: rootDirItem,
       onFileTap: (item, siblings) async {
@@ -245,6 +246,9 @@ class HomePageState extends State<HomePage> {
           else
             await audioHandler.play();
         }
+      },
+      onFileLongPress: (item) async {
+        await showContextMenu(context, item);
       },
       onDirLongPress: (item) async {
         var items = await BlockingSpinner.showWhile<List<FolderItem>>(() async {
@@ -356,7 +360,7 @@ class HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                   key: HomePage.folderScrollerShowcaseKey,
-                  child: folderScroller()
+                  child: folderScroller(context)
                 ),
                 ProgressBar(),
                 ControlPane(

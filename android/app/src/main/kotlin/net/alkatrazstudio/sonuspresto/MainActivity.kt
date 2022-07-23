@@ -54,6 +54,8 @@ class MainActivity: FlutterActivity() {
                     "getDoc" -> result.success(getDocByUriStr(arg))
                     "readLines" -> result.success(readLines(arg))
 
+                    "deleteDoc" -> result.success(deleteDoc(arg))
+
                     else -> result.notImplemented()
                 }
             } catch (e: Throwable) {
@@ -136,6 +138,11 @@ class MainActivity: FlutterActivity() {
     private fun readLines(uri: String): List<String> {
         val stream = contentResolver.openInputStream(Uri.parse(uri)) ?: throw Exception("openInputStream returned null")
         val result = stream.bufferedReader().use { it.readLines() }
+        return result
+    }
+
+    private fun deleteDoc(uri: String): Boolean {
+        val result = DocumentsContract.deleteDocument(contentResolver, Uri.parse(uri))
         return result
     }
 
