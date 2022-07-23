@@ -13,6 +13,7 @@ import '../util/audio_player_handler.dart';
 import '../util/document_tree.dart';
 import '../util/locale_helper.dart';
 import '../util/showcase_util.dart';
+import '../widgets/context_menu.dart';
 import '../widgets/homepage.dart';
 import '../widgets/help_page.dart';
 import '../widgets/locale_selector.dart';
@@ -169,6 +170,22 @@ class OptionsPopup extends StatelessWidget {
                   L(context).optionPopupBtnHelp,
                   textAlign: TextAlign.center
                 )
+              )
+            )
+          ]
+        ),
+        const SizedBox(height: 20),
+        if(folderItem != null) Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton.icon(
+              onPressed: () async {
+                await deleteFileWithConfirmation(context, folderItem);
+              },
+              icon: const Icon(Icons.delete_forever),
+              label: Text(
+                L(context).optionPopupBtnDeleteFile,
+                textAlign: TextAlign.center
               )
             )
           ]

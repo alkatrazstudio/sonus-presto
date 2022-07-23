@@ -23,6 +23,7 @@
 
   "optionsPopupBtnChangeRoot": "Сменить корневую папку",
   "optionPopupBtnHelp": "Справка",
+  "optionPopupBtnDeleteFile": "Удалить текущий файл",
 
   "schemeSystem": "Системная (светлая/тёмная)",
   "schemeSystemBlack": "Системная (светлая/чёрная)",

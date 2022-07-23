@@ -25,6 +25,7 @@
 
   "optionsPopupBtnChangeRoot": "Change the root folder",
   "optionPopupBtnHelp": "Help",
+  "optionPopupBtnDeleteFile": "Delete current file",
 
   "schemeSystem": "System (light/dark)",
   "schemeSystemBlack": "System (light/black)",
