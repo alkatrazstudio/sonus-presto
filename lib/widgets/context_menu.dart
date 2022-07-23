@@ -10,7 +10,9 @@ import '../models/dir_model.dart';
 import '../util/audio_player_handler.dart';
 import '../util/document_tree.dart';
 import '../util/locale_helper.dart';
+import '../widgets/blocking_spinner.dart';
 import '../widgets/folder_scroller.dart';
+import '../widgets/homepage.dart';
 
 class ContextMenuOption {
   ContextMenuOption(this.title, this.icon, this.onTap);
@@ -27,7 +29,7 @@ Future<void> showContextMenu(BuildContext context, FolderItem item) async {
   var options = <ContextMenuOption>[];
 
   if(item.isContainer()) {
-    return;
+    options.add(ContextMenuOption(L(context).contextBtnPlayFolder, Icons.playlist_play, _playSequentially));
   } else {
     options.add(ContextMenuOption(L(context).contextBtnDeleteFile, Icons.delete_forever, deleteFileWithConfirmation));
   }
@@ -91,4 +93,23 @@ Future<void> deleteFileWithConfirmation(BuildContext context, FolderItem item) a
 
   if(inCurDir)
     FolderScroller.reload();
+}
+
+Future<void> _playSequentially(BuildContext context, FolderItem item) async {
+  var items = await BlockingSpinner.showWhile<List<FolderItem>>(() async {
+    List<FolderItem> items = [];
+    await for (var item in item.recursiveChildren()) {
+      if(BlockingSpinner.isInterrupted)
+        return [];
+      items.add(item);
+    }
+    return items;
+  });
+  if(items.isEmpty)
+    return;
+
+  await AudioPlayerHandler.startServiceIfNeeded();
+  audioHandler.updateQueueFromFolderItems(items);
+  await audioHandler.playFromMediaId(items.first.uri());
+  await HomePage.savePlayingDir(item, true);
 }

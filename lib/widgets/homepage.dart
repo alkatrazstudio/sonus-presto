@@ -17,7 +17,6 @@ import '../util/document_tree.dart';
 import '../util/locale_helper.dart';
 import '../util/prefs.dart';
 import '../util/showcase_util.dart';
-import '../widgets/blocking_spinner.dart';
 import '../widgets/context_menu.dart';
 import '../widgets/control_pane.dart';
 import '../widgets/folder_scroller.dart';
@@ -55,6 +54,11 @@ class HomePage extends StatefulWidget {
     await Prefs.remove(prefCurFile);
     await Prefs.remove(prefQueueDir);
     await Prefs.remove(prefQueueDirRecursive);
+  }
+
+  static Future<void> savePlayingDir(FolderItem item, bool isRecursive) async {
+    await Prefs.setString(HomePage.prefQueueDir, item.uri());
+    await Prefs.setBool(HomePage.prefQueueDirRecursive, isRecursive);
   }
 }
 
@@ -202,8 +206,7 @@ class HomePageState extends State<HomePage> {
 
     queueDir = curFileItem.parent();
     var children = await curFileItem.parent().children();
-    await Prefs.setString(HomePage.prefQueueDir, queueDir.uri());
-    await Prefs.setBool(HomePage.prefQueueDirRecursive, false);
+    await HomePage.savePlayingDir(queueDir, false);
     return children;
   }
 
@@ -236,8 +239,7 @@ class HomePageState extends State<HomePage> {
           var mediaItem = audioHandler.queue.valueOrNull?.firstWhereOrNull((mItem) => mItem.id == item.uri());
           if(mediaItem == null) {
             audioHandler.updateQueueFromFolderItems(siblings);
-            await Prefs.setString(HomePage.prefQueueDir, item.parent().uri());
-            await Prefs.setBool(HomePage.prefQueueDirRecursive, false);
+            await HomePage.savePlayingDir(item.parent(), false);
           }
           await audioHandler.playFromMediaId(item.uri());
         } else {
@@ -251,23 +253,7 @@ class HomePageState extends State<HomePage> {
         await showContextMenu(context, item);
       },
       onDirLongPress: (item) async {
-        var items = await BlockingSpinner.showWhile<List<FolderItem>>(() async {
-          List<FolderItem> items = [];
-          await for (var item in item.recursiveChildren()) {
-            if(BlockingSpinner.isInterrupted)
-              return [];
-            items.add(item);
-          }
-          return items;
-        });
-        if(items.isEmpty)
-          return;
-
-        await AudioPlayerHandler.startServiceIfNeeded();
-        audioHandler.updateQueueFromFolderItems(items);
-        await audioHandler.playFromMediaId(items.first.uri());
-        await Prefs.setString(HomePage.prefQueueDir, item.uri());
-        await Prefs.setBool(HomePage.prefQueueDirRecursive, true);
+        await showContextMenu(context, item);
       }
     );
   }
