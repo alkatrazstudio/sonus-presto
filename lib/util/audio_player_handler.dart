@@ -332,7 +332,7 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
       curAudioSource is ConcatenatingAudioSource &&
       const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children)
     ) {
-        player.seek(const Duration(), index: i);
+      player.seek(const Duration(), index: i);
     } else {
       var resultDuration = await player.setAudioSource(playlist, initialIndex: i);
       if(resultDuration != null)
