@@ -54,7 +54,7 @@
   "helpManualMainSwipeRight": "Swipe right to go up one folder.",
   "helpManualMainSwipeLeft": "Swipe left to go the lower level folder you've just navigated from.",
   "helpManualMainPlaylistFolders": "You can open M3U playlists and CUE sheets as folders.",
-  "helpManualMainLongPress": "Long press on a folder/CUE/playlist to play all files in it. The files will be added recursively, including all contained playlists. However each file will be added only once (for example, in case if it's referenced from two playlists).",
+  "helpManualMainLongPress": "Long press will show a context menu (if available). From that menu you can delete the selected item or play all files in a folder or playlist. The files will be added recursively, including all contained playlists. However each file will be added only once (for example, in case if it's referenced from two playlists).",
 
   "helpManualTitle": "Title bar",
   "helpManualTitleDetails": "The title bar contains the path to the current folder relative to the root folder. If the root folder is currently displayed then the title shows the name of the root folder.",
