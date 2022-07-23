@@ -150,23 +150,25 @@ class OptionsPopup extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Flexible(
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
                 onPressed: () {
                   confirmResetRoot(context);
                 },
-                child: Text(
+                icon: const Icon(Icons.folder_special),
+                label: Text(
                   L(context).optionsPopupBtnChangeRoot,
                   textAlign: TextAlign.center
                 )
               )
             ),
             Flexible(
-              child: ElevatedButton(
+              child: ElevatedButton.icon(
                 onPressed: () async {
                   Navigator.of(context).pop();
                   HelpPage.open(context);
                 },
-                child: Text(
+                icon: const Icon(Icons.help),
+                label: Text(
                   L(context).optionPopupBtnHelp,
                   textAlign: TextAlign.center
                 )
