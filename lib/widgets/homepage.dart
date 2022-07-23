@@ -43,7 +43,7 @@ class HomePage extends StatefulWidget {
   static const prefQueueDirRecursive = 'queueDirRecursive';
 
   static const titleShowcaseKey = ShowcaseGlobalKey('title', 1);
-  static const folderScrollerShowcaseKey = ShowcaseGlobalKey('folderScroller', 1);
+  static const folderScrollerShowcaseKey = ShowcaseGlobalKey('folderScroller', 2);
 
   @override
   HomePageState createState() => HomePageState();

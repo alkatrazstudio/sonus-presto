@@ -7,7 +7,7 @@
   "alertChangeRootBtnChange": "Change",
 
   "showcaseFileInfo": "Tap here to locate this file",
-  "showcaseFolderScroller": "This is a current folder contents.\n\nLong press on a folder to play all files in it (recursively, including all contained playlists).\n\nSwipe left or right to navigate within the history.",
+  "showcaseFolderScroller": "This is a current folder contents.\n\nLong press on a folder or file to open a context menu.\n\nSwipe left or right to navigate within the history.",
   "showcaseTitle": "This is the path to the current folder relative to the root folder.\n\nIt can be swiped left or right if it does not fit the screen width.",
   "showcaseControlSlider": "Tap this button to play/pause.\n\nSwipe left/right to play the next/previous track.\n\nSwipe and hold to fast forward/rewind.\n\nTap and hold to stop the current track and rewind it to the beginning.",
   "showcaseOptionsPopup": "Tap here to show the available options",
