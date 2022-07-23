@@ -30,6 +30,8 @@ Here's what you can do in SonusPresto:
 
 * listen to the audio from the video files
 
+* delete files and folders
+
 
 ## Non-features
 
