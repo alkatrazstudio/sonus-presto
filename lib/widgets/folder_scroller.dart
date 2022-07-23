@@ -34,6 +34,10 @@ class FolderScroller extends StatefulWidget {
   static void reload() {
     _key.currentState?.reload();
   }
+
+  static void removeDir(FolderItem dir) {
+    _key.currentState?.removeDir(dir);
+  }
 }
 
 class FolderScrollerState extends State<FolderScroller> {
@@ -56,13 +60,19 @@ class FolderScrollerState extends State<FolderScroller> {
     super.dispose();
   }
 
+  final pageController = PageController(initialPage: 0);
+
+  late List<FolderItem> dirItems = [];
+
   void reload() {
     setState(() {});
   }
 
-  final pageController = PageController(initialPage: 0);
-
-  late List<FolderItem> dirItems = [];
+  void removeDir(FolderItem dir) {
+    setState(() {
+      dirItems = dirItems.where((dirItem) => !dirItem.isChildOf(dir)).toList();
+    });
+  }
 
   Future animateToPage(int index) async {
     await SchedulerBinding.instance.endOfFrame;

@@ -252,43 +252,58 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
 
   @override
   Future<void> removeQueueItem(MediaItem mediaItem) async {
+    await removeQueueItems([mediaItem]);
+  }
+
+  Future<void> removeQueueItems(List<MediaItem> mediaItems) async {
     var curQueue = queue.valueOrNull;
-    if(curQueue == null)
+    if(curQueue == null || curQueue.isEmpty)
       return;
-
-    if(!curQueue.contains(mediaItem))
-      return;
-
-    MediaItem? nextMediaItem;
-
-    if(this.mediaItem.valueOrNull?.id == mediaItem.id) {
-      if(playbackState.value.playing) {
-        var curIndex = audioHandler.currentQueueIndex();
-        if(curIndex != null)
-        {
-          if(curIndex < (curQueue.length - 1))
-            nextMediaItem = curQueue[curIndex + 1];
-          else if(curIndex > 0) {
-            nextMediaItem = curQueue[curIndex - 1];
-          }
-        }
-      }
-      await stop();
-      this.mediaItem.add(null);
-    }
-
     var newQueue = <MediaItem>[];
     newQueue.addAll(curQueue);
-    newQueue.remove(mediaItem);
 
+    var nextMediaItem = playbackState.value.playing ? mediaItem.valueOrNull : null;
+    var isStopped = false;
     var audioSource = player.audioSource;
-    if(audioSource is ConcatenatingAudioSource) {
-      var folderItemIndex = folderItems.indexWhere((item) => item.uri() == mediaItem.id);
-      if(folderItemIndex >= 0)
-        audioSource.removeAt(folderItemIndex);
+    var hasChanged = false;
+
+    for(var item in mediaItems) {
+      var itemIndex = newQueue.indexOf(item);
+      if(itemIndex < 0)
+        continue;
+
+      if(nextMediaItem == item) {
+        if(itemIndex < (newQueue.length - 1))
+          nextMediaItem = newQueue[itemIndex + 1];
+        else if(itemIndex > 0) {
+          nextMediaItem = newQueue[itemIndex - 1];
+        } else {
+          nextMediaItem = null;
+        }
+        if(!isStopped) {
+          await stop();
+          isStopped = true;
+        }
+        mediaItem.add(null);
+      }
+
+      newQueue.remove(item);
+      hasChanged = true;
+
+      if(audioSource is ConcatenatingAudioSource) {
+        var folderItemIndex = folderItems.indexWhere((folderItem) => folderItem.uri() == item.id);
+        if(folderItemIndex >= 0) {
+          audioSource.removeAt(folderItemIndex);
+          folderItems.removeAt(folderItemIndex);
+        }
+      }
     }
+
+    if(!hasChanged)
+      return;
+
     await updateQueue(newQueue);
-    if(nextMediaItem != null)
+    if(nextMediaItem != null && nextMediaItem != mediaItem.valueOrNull)
       await playMediaItem(nextMediaItem);
     await updateState();
   }

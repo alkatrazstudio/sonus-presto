@@ -37,6 +37,8 @@
   "contextBtnDeleteFile": "Delete the file",
   "deleteFileConfirmText": "Delete this file?",
   "contextBtnPlayFolder": "Play",
+  "contextBtnDeleteFolder": "Delete the folder",
+  "deleteFolderConfirmText": "Delete this folder?",
 
   "helpManual": "Manual",
 

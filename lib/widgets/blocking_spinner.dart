@@ -16,10 +16,15 @@ enum BlockingSpinnerState {
 
 class BlockingSpinnerModel extends ChangeNotifier {
   var state = BlockingSpinnerState.hidden;
+  var canCancel = true;
 
   void setState(BlockingSpinnerState newState) {
     state = newState;
     notifyListeners();
+  }
+
+  void setCanCancel(bool newCanCancel) {
+    canCancel = newCanCancel;
   }
 }
 
@@ -28,7 +33,8 @@ class BlockingSpinner extends StatelessWidget {
 
   const BlockingSpinner();
 
-  static Future<T> showWhile<T>(Future<T> Function() func) async {
+  static Future<T> showWhile<T>(bool canCancel, Future<T> Function() func) async {
+    model.setCanCancel(canCancel);
     model.setState(BlockingSpinnerState.shown);
     try {
       var result = await func();
@@ -59,7 +65,7 @@ class BlockingSpinner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const LoadingIndicator(),
-                Padding(
+                if(model.canCancel) Padding(
                   padding: const EdgeInsets.only(top: 50),
                   child: ElevatedButton(
                     child: Text(L(context).btnCancel),

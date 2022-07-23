@@ -35,6 +35,8 @@
   "contextBtnDeleteFile": "Удалить файл",
   "deleteFileConfirmText": "Удалить этот файл?",
   "contextBtnPlayFolder": "Воспроизвести",
+  "contextBtnDeleteFolder": "Удалить папку",
+  "deleteFolderConfirmText": "Удалить эту папку?",
 
   "helpManual": "Руководство",
 
