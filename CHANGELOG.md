@@ -1,6 +1,12 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.4.0 (July 24, 2022)
+
+- Now files and folders can be removed
+- Fixed a crash that happened after the last track is played
+
+
 ## v0.3.3 (December 25, 2021)
 
 - Internal optimizations

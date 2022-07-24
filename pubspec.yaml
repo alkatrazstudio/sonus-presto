@@ -5,7 +5,7 @@ description: >
   Focused on gesture controls.
   Supports CUE sheets, M3U playlists and Internet radio.
 
-version: 0.3.3+11
+version: 0.4.0+12
 
 environment:
   sdk: ">=2.17.6 <3.0.0"

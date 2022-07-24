@@ -1,0 +1,2 @@
+Now files and folders can be removed
+Fixed a crash that happened after the last track is played
