@@ -176,8 +176,7 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     if(player.processingState == ProcessingState.completed) {
       var mItem = mediaItem.valueOrNull;
       if(mItem != null)
-        await playMediaItem(mItem);
-      return;
+        await prepareMediaItem(mItem);
     }
 
     player.play();
@@ -345,10 +344,12 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     var curAudioSource = player.audioSource;
     if(
       curAudioSource is ConcatenatingAudioSource &&
-      const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children)
+      const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children) &&
+      player.processingState != ProcessingState.completed
     ) {
       player.seek(const Duration(), index: i);
     } else {
+      await player.stop();
       var resultDuration = await player.setAudioSource(playlist, initialIndex: i);
       if(resultDuration != null)
         duration = resultDuration;
