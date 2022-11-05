@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.4.1 (November 5, 2022)
+
+- Fixed removing files with non-ascii characters
+
+
 ## v0.4.0 (July 24, 2022)
 
 - Now files and folders can be removed

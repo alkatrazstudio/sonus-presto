@@ -1,0 +1,1 @@
+Fixed removing files with non-ascii characters
