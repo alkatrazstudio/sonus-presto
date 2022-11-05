@@ -47,10 +47,11 @@ android {
     defaultConfig {
         applicationId 'net.alkatrazstudio.sonuspresto'
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    namespace 'net.alkatrazstudio.sonuspresto'
 
     if (keystorePropertiesFile.exists()) {
         keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
