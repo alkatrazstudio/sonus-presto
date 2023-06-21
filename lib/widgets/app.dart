@@ -82,8 +82,8 @@ class MyAppState extends State<MyApp> {
         appBarStyle: FlexAppBarStyle.primary,
         darkIsTrueBlack: schemeVariant == SchemeVariant.systemBlack || schemeVariant == SchemeVariant.black).toTheme,
       themeMode: schemeVariantToThemeMode(schemeVariant),
-      home: Stack(
-        children: const [
+      home: const Stack(
+        children: [
           HomePage(),
           BlockingSpinner()
         ]

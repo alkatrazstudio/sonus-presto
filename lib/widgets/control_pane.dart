@@ -36,7 +36,7 @@ class ControlPane extends StatelessWidget {
     return Card(
       margin: EdgeInsets.zero,
       shape: const RoundedRectangleBorder(),
-      color: Theme.of(context).bottomAppBarColor,
+      color: Theme.of(context).bottomAppBarTheme.color,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

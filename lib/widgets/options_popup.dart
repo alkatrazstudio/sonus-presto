@@ -97,7 +97,7 @@ class OptionsPopup extends StatelessWidget {
           children: [
             Text(
               folderItem.displayName(),
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center
             ),
             Row(
@@ -105,11 +105,11 @@ class OptionsPopup extends StatelessWidget {
               children: [
                 Icon(
                   Icons.access_time_rounded,
-                  size: Theme.of(context).textTheme.subtitle2?.fontSize ?? 15
+                  size: Theme.of(context).textTheme.titleSmall?.fontSize ?? 15
                 ),
                 Text(
                   ' ${durationToStr(context.watch<PlaybackStateModel>().duration)}',
-                  style: Theme.of(context).textTheme.subtitle2
+                  style: Theme.of(context).textTheme.titleSmall
                 )
               ]
             ),
@@ -120,7 +120,7 @@ class OptionsPopup extends StatelessWidget {
               ),
               child: Text(
                 folderItem.parent().displayName(),
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
                 textAlign: TextAlign.center
               )
             )

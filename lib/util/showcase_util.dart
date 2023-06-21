@@ -39,7 +39,7 @@ class ShowcaseUtil {
     var targetBox = context.findRenderObject();
     if(targetBox is! RenderBox)
       return;
-    var overlayBox = Overlay.of(context)?.context.findRenderObject();
+    var overlayBox = Overlay.of(context).context.findRenderObject();
     if(overlayBox is! RenderBox)
       return;
 
@@ -65,7 +65,7 @@ class ShowcaseUtil {
           child: Text(
             text,
             softWrap: true,
-            style: TextStyle(color: Theme.of(context).backgroundColor)
+            style: TextStyle(color: Theme.of(context).colorScheme.background)
           )
         )
       )

@@ -29,6 +29,7 @@ def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 
 android {
+    namespace 'net.alkatrazstudio.sonuspresto'
     compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
@@ -83,8 +84,4 @@ android {
 
 flutter {
     source '../..'
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

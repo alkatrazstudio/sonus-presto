@@ -61,7 +61,7 @@ class SchemeSelectorState extends State<SchemeSelector> {
             children: [
               Text(
                 L(context).schemeLabel,
-                style: Theme.of(context).textTheme.headline6
+                style: Theme.of(context).textTheme.titleLarge
               ),
               const Spacer(),
               DropdownButton<SchemeVariant>(

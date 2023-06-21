@@ -27,7 +27,7 @@ class LocaleSelectorState extends State<LocaleSelector> {
         children: [
           Text(
             L(context).localeSelectorLabel,
-            style: Theme.of(context).textTheme.headline6
+            style: Theme.of(context).textTheme.titleLarge
           ),
           const Spacer(),
           DropdownButton<String>(
