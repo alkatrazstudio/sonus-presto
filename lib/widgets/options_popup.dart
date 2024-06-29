@@ -21,7 +21,7 @@ import '../widgets/restartable_app.dart';
 import '../widgets/scheme_selector.dart';
 
 class OptionsPopup extends StatelessWidget {
-  static const fileInfoShowcaseKey = ShowcaseGlobalKey('fileInfo', 1);
+  static final fileInfoShowcase = ShowcaseController('fileInfo', 1);
 
   const OptionsPopup({
     required this.onLocateFile
@@ -81,50 +81,54 @@ class OptionsPopup extends StatelessWidget {
   }
 
   Widget fileInfo(BuildContext context, FolderItem folderItem) {
-    return InkWell(
-      key: fileInfoShowcaseKey,
-      onTap: () {
-        onLocateFile.call();
-        Navigator.of(context).pop();
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 10
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              folderItem.displayName(),
-              style: Theme.of(context).textTheme.titleLarge,
-              textAlign: TextAlign.center
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.access_time_rounded,
-                  size: Theme.of(context).textTheme.titleSmall?.fontSize ?? 15
-                ),
-                Text(
-                  ' ${durationToStr(context.watch<PlaybackStateModel>().duration)}',
-                  style: Theme.of(context).textTheme.titleSmall
-                )
-              ]
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 10
-              ),
-              child: Text(
-                folderItem.parent().displayName(),
-                style: Theme.of(context).textTheme.bodySmall,
+    return Showcase(
+      text: L(context).showcaseFileInfo,
+      tooltipDirection: TooltipDirection.down,
+      controller: fileInfoShowcase,
+      child: InkWell(
+        onTap: () {
+          onLocateFile.call();
+          Navigator.of(context).pop();
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: 10
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                folderItem.displayName(),
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.access_time_rounded,
+                    size: Theme.of(context).textTheme.titleSmall?.fontSize ?? 15
+                  ),
+                  Text(
+                    ' ${durationToStr(context.watch<PlaybackStateModel>().duration)}',
+                    style: Theme.of(context).textTheme.titleSmall
+                  )
+                ]
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 10
+                ),
+                child: Text(
+                  folderItem.parent().displayName(),
+                  style: Theme.of(context).textTheme.bodySmall,
+                  textAlign: TextAlign.center
+                )
               )
-            )
-          ]
+            ]
+          )
         )
       )
     );
@@ -134,12 +138,8 @@ class OptionsPopup extends StatelessWidget {
   Widget build(context) {
     var folderItem = context.watch<PlaybackStateModel>().folderItem;
 
-    Future<void>.delayed(const Duration(milliseconds: 500)).then((value) {
-      ShowcaseUtil.showForContext(
-        key: fileInfoShowcaseKey,
-        text: L(context).showcaseFileInfo,
-        tooltipDirection: TooltipDirection.down
-      );
+    Future<void>.delayed(const Duration(milliseconds: 500)).then((value) async {
+      await fileInfoShowcase.show();
     });
 
     return Column(

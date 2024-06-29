@@ -4,7 +4,7 @@
 import 'package:flutter/widgets.dart';
 
 class SwiftPageScrollPhysics extends PageScrollPhysics {
-  const SwiftPageScrollPhysics({ ScrollPhysics? parent }): super(parent: parent);
+  const SwiftPageScrollPhysics({ super.parent });
 
   @override
   SwiftPageScrollPhysics applyTo(ScrollPhysics? ancestor) {

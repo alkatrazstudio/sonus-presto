@@ -128,7 +128,7 @@ abstract class DocumentTreeItem {
 }
 
 class DocumentTreeItemDirectory extends DocumentTreeItem {
-  DocumentTreeItemDirectory(String uri) : super(uri);
+  DocumentTreeItemDirectory(super.uri);
 
   Future<List<DocumentTreeItem>> listChildren() async {
     try{
@@ -141,7 +141,7 @@ class DocumentTreeItemDirectory extends DocumentTreeItem {
 }
 
 class DocumentTreeItemFile extends DocumentTreeItem {
-  DocumentTreeItemFile(String uri) : super(uri);
+  DocumentTreeItemFile(super.uri);
 
   Future<List<String>> readLines() async {
     try{

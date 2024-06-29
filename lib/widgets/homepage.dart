@@ -42,8 +42,8 @@ class HomePage extends StatefulWidget {
   static const prefQueueDir = 'queueDir';
   static const prefQueueDirRecursive = 'queueDirRecursive';
 
-  static const titleShowcaseKey = ShowcaseGlobalKey('title', 1);
-  static const folderScrollerShowcaseKey = ShowcaseGlobalKey('folderScroller', 2);
+  static final titleShowcase = ShowcaseController('title', 1);
+  static final folderScrollerShowcase = ShowcaseController('folderScroller', 2);
 
   @override
   HomePageState createState() => HomePageState();
@@ -281,29 +281,10 @@ class HomePageState extends State<HomePage> {
   }
 
   void startShowcase(BuildContext context) async {
-    await ShowcaseUtil.showForContext(
-      key: HomePage.folderScrollerShowcaseKey,
-      text: L(context).showcaseFolderScroller,
-      tooltipDirection: TooltipDirection.down
-    );
-
-    await ShowcaseUtil.showForContext(
-      key: HomePage.titleShowcaseKey,
-      text: L(context).showcaseTitle,
-      tooltipDirection: TooltipDirection.down
-    );
-
-    await ShowcaseUtil.showForContext(
-      key: ControlPane.controlSliderShowcaseKey,
-      text: L(context).showcaseControlSlider,
-      tooltipDirection: TooltipDirection.up
-    );
-
-    await ShowcaseUtil.showForContext(
-      key: ControlPane.optionsPopupBtnShowcaseKey,
-      text: L(context).showcaseOptionsPopup,
-      tooltipDirection: TooltipDirection.up
-    );
+    await HomePage.folderScrollerShowcase.show();
+    await HomePage.titleShowcase.show();
+    await ControlPane.controlSliderShowcase.show();
+    await ControlPane.optionsPopupBtnShowcase.show();
   }
 
   @override
@@ -311,8 +292,8 @@ class HomePageState extends State<HomePage> {
     initFuture ??= init(context);
     initFuture!.catchError((Object _) => isError = true);
 
-    return WillPopScope(
-      onWillPop: () async {
+    return PopScope(
+      canPop: (() {
         if(isError)
           return true;
         var dirModel = context.read<DirModel>();
@@ -321,17 +302,21 @@ class HomePageState extends State<HomePage> {
           return false;
         dirModel.setDir(newDirItem);
         return false;
-      },
+      })(),
       child: Scaffold(
         appBar: AppBar(
           title: FutureBuilder<bool>(
             future: initFuture,
             builder: (context, snapshot) {
-              return SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                reverse: true,
-                key: HomePage.titleShowcaseKey,
-                child: Text(snapshot.hasData ? title(context.watch<DirModel>().curDirItem) : appTitle)
+              return Showcase(
+                text: L(context).showcaseTitle,
+                tooltipDirection: TooltipDirection.down,
+                controller: HomePage.titleShowcase,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  reverse: true,
+                  child: Text(snapshot.hasData ? title(context.watch<DirModel>().curDirItem) : appTitle)
+                )
               );
             }
           )
@@ -345,8 +330,12 @@ class HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                  key: HomePage.folderScrollerShowcaseKey,
-                  child: folderScroller(context)
+                  child: Showcase(
+                    controller: HomePage.folderScrollerShowcase,
+                    text: L(context).showcaseFolderScroller,
+                    tooltipDirection: TooltipDirection.down,
+                    child: folderScroller(context)
+                  )
                 ),
                 ProgressBar(),
                 ControlPane(
