@@ -173,7 +173,7 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
 
   @override
   Future<void> play() async {
-    if(player.processingState == ProcessingState.completed) {
+    if(player.processingState == ProcessingState.completed || player.processingState == ProcessingState.idle) {
       var mItem = mediaItem.valueOrNull;
       if(mItem != null)
         await prepareMediaItem(mItem);
@@ -345,7 +345,8 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     if(
       curAudioSource is ConcatenatingAudioSource &&
       const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children) &&
-      player.processingState != ProcessingState.completed
+      player.processingState != ProcessingState.completed &&
+      player.processingState != ProcessingState.idle
     ) {
       player.seek(const Duration(), index: i);
     } else {
