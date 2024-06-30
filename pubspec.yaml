@@ -24,14 +24,14 @@ dependencies:
   flex_color_scheme: 7.3.1
   provider: 6.1.2
   scrollable_positioned_list: 0.3.8
-  flutter_html: 3.0.0-beta.2
-  flutter_html_table: 3.0.0-beta.2
   super_tooltip: 2.0.7
-  url_launcher: 6.3.0
-  package_info_plus: 8.0.0
-  intl: 0.19.0
   collection: 1.18.0
   path: 1.9.0
+
+  help_page:
+    git:
+      url: https://github.com/z80maniac/flutter_help_page.git
+      ref: 163c3210c918bc269ab72aa66de1276c35b888e9
 
 dev_dependencies:
   flutter_lints: 4.0.0

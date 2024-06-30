@@ -165,7 +165,7 @@ class OptionsPopup extends StatelessWidget {
               child: ElevatedButton.icon(
                 onPressed: () async {
                   Navigator.of(context).pop();
-                  HelpPage.open(context);
+                  showHelpPage(context);
                 },
                 icon: const Icon(Icons.help),
                 label: Text(

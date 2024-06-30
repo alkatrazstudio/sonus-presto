@@ -38,8 +38,6 @@
   "contextBtnDeleteFolder": "Удалить папку",
   "deleteFolderConfirmText": "Удалить эту папку?",
 
-  "helpManual": "Руководство",
-
   "helpManualStart": "Начало работы",
   "helpManualStartDetails": "{appTitle} играет вашу музыку по папкам без использования тегов.",
   "helpManualStartSelectRoot": "При первом запуске {appTitle} вам надо выбрать корневую папку с музыкой. {appTitle} будет работать только в пределах этой корневой папки (и подпапок)",
@@ -65,29 +63,5 @@
 
   "helpManualOptions": "Окно настроек",
   "helpManualOptionsDetails": "Нажатие на кнопку в правом нижнем углу откроет окно с настройками приложения.",
-  "helpManualOptionsLocateFile": "В этом окне вы можете нажать на область, где отображается информация о текущем треке. Это переместит браузер файлов к данному файлу.",
-
-  "helpAbout": "О программе",
-  "helpAboutWebsite": "Сайт",
-  "helpAboutGooglePlay": "Страница на Google Play",
-  "helpAboutIssues": "Сообщить об ошибке",
-  "helpAboutChangelog": "Список изменений",
-  "helpAboutBuildDate": "Дата сборки",
-  "helpAboutGitHash": "Хэш git-коммита",
-  "helpAboutPackageName": "Имя пакета",
-  "helpAboutBuildSignature": "Сигнатура сборки",
-  "helpAboutBuildNumber": "Номер сборки",
-  "helpAboutLicense": "Лицензия",
-  "helpAboutAuthor": "Автор",
-  "helpAboutAuthorWebsite": "Сайт автора",
-
-  "helpLicenses": "Компоненты",
-  "helpLicensesLibraries": "Библиотеки",
-  "helpLicensesLibrariesDetails": "Ниже представлен список всех библиотек, которые напрямую используются в {appTitle}. Эти библиотеки могут в свою очередь использовать другие библиотеки. Нажмите на название библиотеки, чтобы перейти на её сайт. Нажмите на название лицензии, чтобы прочитать её текст в интернете.",
-  "helpLicensesHeaderLibrary": "Библиотека",
-  "helpLicensesHeaderLicense": "Лицензия",
-
-  "helpLicensesAssets": "Ресурсы",
-  "helpLicensesAssetsDetails": "Ниже представлен список всех ресурсов, которые напрямую используются в {appTitle}. Некоторые библиотеки, используемые в {appTitle}, могут содержать и/или использовать другие ресурсы. Нажмите на название ресурса, чтобы перейти на его сайт. Нажмите на название лицензии, чтобы прочитать её текст в интернете.",
-  "helpLicensesHeaderAsset": "Ресурс"
+  "helpManualOptionsLocateFile": "В этом окне вы можете нажать на область, где отображается информация о текущем треке. Это переместит браузер файлов к данному файлу."
 }
