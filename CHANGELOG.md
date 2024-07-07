@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.5.0 (July 7, 2024)
+
+- Fixed: Internet radio is stuck after a disconnect
+
+
 ## v0.4.2 (June 23, 2023)
 
 - Improved: horizontal scrolling is now more responsive

@@ -1,0 +1,3 @@
+- Исправлено зависание Internet-радио после перебоя в соединении
+
+Полный список изменений: https://github.com/alkatrazstudio/sonus-presto/blob/master/CHANGELOG.md

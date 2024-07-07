@@ -1,0 +1,3 @@
+- Fixed: Internet radio is stuck after a disconnect
+
+Full changelog: https://github.com/alkatrazstudio/sonus-presto/blob/master/CHANGELOG.md
