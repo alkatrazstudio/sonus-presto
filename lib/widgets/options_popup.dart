@@ -150,7 +150,7 @@ class OptionsPopup extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Flexible(
-              child: ElevatedButton.icon(
+              child: OutlinedButton.icon(
                 onPressed: () {
                   confirmResetRoot(context);
                 },
@@ -162,7 +162,7 @@ class OptionsPopup extends StatelessWidget {
               )
             ),
             Flexible(
-              child: ElevatedButton.icon(
+              child: OutlinedButton.icon(
                 onPressed: () async {
                   Navigator.of(context).pop();
                   showHelpPage(context);
@@ -180,7 +180,7 @@ class OptionsPopup extends StatelessWidget {
         if(folderItem != null) Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ElevatedButton.icon(
+            OutlinedButton.icon(
               onPressed: () async {
                 await deleteFileWithConfirmation(context, folderItem);
               },

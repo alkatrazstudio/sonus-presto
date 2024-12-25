@@ -27,7 +27,8 @@ class ProgressBar extends StatelessWidget {
       animation: valueListener,
       builder: (context, child) {
         return LinearProgressIndicator(
-          value: valueListener.value
+          value: valueListener.value,
+          backgroundColor: Colors.transparent
         );
       }
     );
