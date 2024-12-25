@@ -64,7 +64,6 @@ void showHelpPage(BuildContext context) {
         HelpPagePackage.flutter('flutter_lints', HelpPageLicense.bsd3),
         HelpPagePackage.flutter('collection', HelpPageLicense.bsd3),
         HelpPagePackage.flutter('path', HelpPageLicense.bsd3),
-        HelpPagePackage.foss(name: 'help_page', url: 'https://github.com/z80maniac/flutter_help_page', license: HelpPageLicense.mpl2)
       ],
       assets: [
         HelpPagePackage.foss(

@@ -8,8 +8,8 @@ description: >
 version: 0.5.0+15
 
 environment:
-  sdk: ^3.4.3
-  flutter: ^3.22.2
+  sdk: ^3.6.0
+  flutter: ^3.27.1
 
 dependencies:
   flutter:
@@ -17,24 +17,24 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  just_audio: 0.9.38
-  audio_service: 0.18.13
-  audio_session: 0.1.19
-  shared_preferences: 2.2.3
-  flex_color_scheme: 7.3.1
+  just_audio: 0.9.42
+  audio_service: 0.18.16
+  audio_session: 0.1.23
+  shared_preferences: 2.3.4
+  flex_color_scheme: 8.0.2
   provider: 6.1.2
   scrollable_positioned_list: 0.3.8
-  super_tooltip: 2.0.7
-  collection: 1.18.0
+  super_tooltip: 2.0.9
+  collection: 1.19.0
   path: 1.9.0
 
   help_page:
     git:
       url: https://github.com/z80maniac/flutter_help_page.git
-      ref: 163c3210c918bc269ab72aa66de1276c35b888e9
+      ref: 3464f5acadba56d49f7e38b5684acffdf19b2fad
 
 dev_dependencies:
-  flutter_lints: 4.0.0
+  flutter_lints: 5.0.0
 
 flutter:
   uses-material-design: true
