@@ -293,16 +293,15 @@ class HomePageState extends State<HomePage> {
     initFuture!.catchError((Object _) => isError = true);
 
     return PopScope(
-      canPop: (() {
+      onPopInvokedWithResult: (bool didPop, Object? result) async {
         if(isError)
-          return true;
+          Navigator.pop(context);
         var dirModel = context.read<DirModel>();
         var newDirItem = dirModel.curDirItem.parent();
         if(!newDirItem.isChildOf(rootDirItem))
-          return false;
+          return;
         dirModel.setDir(newDirItem);
-        return false;
-      })(),
+      },
       child: Scaffold(
         appBar: AppBar(
           title: FutureBuilder<bool>(
