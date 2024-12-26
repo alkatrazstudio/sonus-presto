@@ -67,6 +67,7 @@ class Showcase extends StatelessWidget {
       arrowLength: 50,
       hasShadow: false,
       onHide: controller.onHide,
+      showOnTap: false,
       content: GestureDetector(
         onTap: () {
           controller.hide();
