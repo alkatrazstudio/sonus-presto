@@ -6,6 +6,7 @@
   "alertChangeRootTitle": "Change the root folder?",
   "alertChangeRootBtnChange": "Change",
 
+  "showcaseGooglePlay": "The app will be removed from Google Play!\n\nRead more at the app's website\n(three dots > Help > About > Website).",
   "showcaseFileInfo": "Tap here to locate this file",
   "showcaseFolderScroller": "This is a current folder contents.\n\nLong press on a folder or file to open a context menu.\n\nSwipe left or right to navigate within the history.",
   "showcaseTitle": "This is the path to the current folder relative to the root folder.\n\nIt can be swiped left or right if it does not fit the screen width.",

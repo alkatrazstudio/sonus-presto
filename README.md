@@ -8,6 +8,17 @@ Supports CUE sheets, M3U playlists and Internet radio.
 Minimum supported Android version: 5.0 (Lollipop, API 21)
 
 
+## WARNING: The app will soon be removed from Google Play!
+
+SonusPresto will be removed from Google Play at the end of January 2025.
+You will probably be able to continue to use this app if it's already installed,
+but if you want to receive further updates you should migrate to the version from GitHub releases.
+
+You can remove your current version and install
+[the latest app version](https://github.com/alkatrazstudio/sonus-presto/releases/latest)
+from GitHub releases.
+
+
 ## Features
 
 Here's what you can do in SonusPresto:
@@ -72,6 +83,12 @@ Here are some quirks:
 
 
 ## Download
+
+Download the latest app version [here](https://github.com/alkatrazstudio/sonus-presto/releases/latest).
+
+Google Play version [will be removed soon](#warning-the-app-will-soon-be-removed-from-google-play).
+
+If you still want to install the Google Play version:
 
 <a target='_blank' rel='noopener noreferrer nofollow' href='https://play.google.com/store/apps/details?id=net.alkatrazstudio.sonuspresto'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width='240'/></a>
 

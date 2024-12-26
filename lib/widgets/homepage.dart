@@ -42,6 +42,7 @@ class HomePage extends StatefulWidget {
   static const prefQueueDir = 'queueDir';
   static const prefQueueDirRecursive = 'queueDirRecursive';
 
+  static final googlePlayShowcase = ShowcaseController('googlePlay', 1);
   static final titleShowcase = ShowcaseController('title', 1);
   static final folderScrollerShowcase = ShowcaseController('folderScroller', 2);
 
@@ -281,6 +282,7 @@ class HomePageState extends State<HomePage> {
   }
 
   void startShowcase(BuildContext context) async {
+    await HomePage.googlePlayShowcase.show();
     await HomePage.folderScrollerShowcase.show();
     await HomePage.titleShowcase.show();
     await ControlPane.controlSliderShowcase.show();
@@ -330,10 +332,15 @@ class HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                   child: Showcase(
-                    controller: HomePage.folderScrollerShowcase,
-                    text: L(context).showcaseFolderScroller,
+                    controller: HomePage.googlePlayShowcase,
+                    text: L(context).showcaseGooglePlay,
                     tooltipDirection: TooltipDirection.down,
-                    child: folderScroller(context)
+                    child: Showcase(
+                      controller: HomePage.folderScrollerShowcase,
+                      text: L(context).showcaseFolderScroller,
+                      tooltipDirection: TooltipDirection.down,
+                      child: folderScroller(context)
+                    )
                   )
                 ),
                 ProgressBar(),
