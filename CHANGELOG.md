@@ -1,6 +1,13 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.5.1 (December 29, 2024)
+
+- Changed: slight changes in the GUI
+- Fixed: help tooltip is shown when tapping on the file list
+- Fixed: back button does not work
+
+
 ## v0.5.0 (July 7, 2024)
 
 - Fixed: Internet radio is stuck after a disconnect

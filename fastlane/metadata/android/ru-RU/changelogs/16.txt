@@ -1,0 +1,8 @@
+WARNING! The app will be removed from Google Play soon!
+Read more: https://github.com/alkatrazstudio/sonus-presto#warning-the-app-will-soon-be-removed-from-google-play
+
+- Небольшие изменения в интерфейсе
+- Убран повторный показ подсказок при нажатии на список файлов
+- Починена кнопка "назад"
+
+Полный список изменений: https://github.com/alkatrazstudio/sonus-presto/blob/master/CHANGELOG.md

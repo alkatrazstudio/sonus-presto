@@ -1,0 +1,8 @@
+WARNING! The app will be removed from Google Play soon!
+Read more: https://github.com/alkatrazstudio/sonus-presto#warning-the-app-will-soon-be-removed-from-google-play
+
+- Changed: slight changes in the GUI
+- Fixed: help tooltip is shown when tapping on the file list
+- Fixed: back button does not work
+
+Full changelog: https://github.com/alkatrazstudio/sonus-presto/blob/master/CHANGELOG.md
