@@ -1,6 +1,15 @@
 # SonusPresto - CHANGELOG
 
 
+## v0.5.2 (May 3, 2025)
+
+- Removed: all references to Google Play
+- Changed: *.iml files are removed from the repo and ignored from now on, so the existing projects may need to be reimported into IDEs
+  (or download the old versions:
+  [/sonuspresto.iml](https://github.com/alkatrazstudio/sonus-presto/blob/a96a2558bd7f2e64fb8fed1e974065382b00a9ff/sonuspresto.iml),
+  [/android/sonuspresto_android.iml](https://github.com/alkatrazstudio/sonus-presto/blob/a96a2558bd7f2e64fb8fed1e974065382b00a9ff/android/sonuspresto_android.iml))
+
+
 ## v0.5.1 (December 29, 2024)
 
 - Changed: slight changes in the GUI
