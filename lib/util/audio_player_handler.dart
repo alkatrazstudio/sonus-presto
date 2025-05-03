@@ -29,12 +29,11 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     });
 
     player.sequenceStateStream.listen((sequenceState) async {
-      if(sequenceState == null) {
+      var i = sequenceState.currentIndex;
+      if(i == null) {
         await updateState();
         return;
       }
-
-      var i = sequenceState.currentIndex;
       var mItems = queue.valueOrNull!;
       if(i > (mItems.length - 1)) {
         await updateState();
