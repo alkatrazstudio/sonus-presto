@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/generated/app_localizations.dart';
 import '../models/dir_model.dart';
 import '../models/locale_model.dart';
 import '../models/playback_state_model.dart';
