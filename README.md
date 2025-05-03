@@ -8,17 +8,6 @@ Supports CUE sheets, M3U playlists and Internet radio.
 Minimum supported Android version: 5.0 (Lollipop, API 21)
 
 
-## WARNING: The app will soon be removed from Google Play!
-
-SonusPresto will be removed from Google Play at the end of January 2025.
-You will probably be able to continue to use this app if it's already installed,
-but if you want to receive further updates you should migrate to the version from GitHub releases.
-
-You can remove your current version and install
-[the latest app version](https://github.com/alkatrazstudio/sonus-presto/releases/latest)
-from GitHub releases.
-
-
 ## Features
 
 Here's what you can do in SonusPresto:
@@ -86,14 +75,6 @@ Here are some quirks:
 
 Download the latest app version [here](https://github.com/alkatrazstudio/sonus-presto/releases/latest).
 
-Google Play version [will be removed soon](#warning-the-app-will-soon-be-removed-from-google-play).
-
-If you still want to install the Google Play version:
-
-<a target='_blank' rel='noopener noreferrer nofollow' href='https://play.google.com/store/apps/details?id=net.alkatrazstudio.sonuspresto'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width='240'/></a>
-
-Google Play and the Google Play logo are trademarks of Google LLC.
-
 
 ## Build
 
@@ -114,29 +95,6 @@ To build this application do the following:
    For more information see the official "[Signing the app](https://flutter.dev/docs/deployment/android#signing-the-app)" tutorial.
 
 5. To build the release APK run `./build-apk.sh` inside the repository root.
-   To build the release Android App Bundle run `./build-bundle.sh`.
-   These scripts will remove the entire `build` directory before building,
-   so e.g. `./build-bundle.sh` will remove the APK file that was built by `./build-apk.sh`.
-
-
-## Upload to Google Play
-
-For uploading production releases this project uses [fastlane](https://fastlane.tools).
-
-1. Create `fastlane/Appfile` file using [fastlane/Appfile.template](fastlane/Appfile.template) as a template.
-
-2. Use the following instructions to obtain `api-secret.json` file: https://docs.fastlane.tools/actions/supply/#setup.
-
-3. Install [Bundler](https://bundler.io), e.g. on Ubuntu: `sudo apt install ruby-bundler`.
-
-4. Run `bundle install`. It will install fastlane.
-
-5. Make appropriate changes in `fastlane/metadata/android`.
-
-6. Build and deploy a new release: `./build-bundle.sh --upload`.
-
-Repeat `5` and `6` for each new release.
-These steps are not exhaustive. Consult [fastlane docs](https://docs.fastlane.tools) for more information.
 
 
 ## License

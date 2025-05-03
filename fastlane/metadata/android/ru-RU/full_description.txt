@@ -4,10 +4,6 @@
 Поддерживает CUE sheets, плейлисты M3U и интернет-радио.
 
 
-ВНИМАНИЕ! Приложение скоро будет удалено из Google Play!
-Подробнее: https://github.com/alkatrazstudio/sonus-presto#warning-the-app-will-soon-be-removed-from-google-play
-
-
 В SonusPresto вы сможете:
 
 * слушать музыку

@@ -48,7 +48,6 @@ void showHelpPage(BuildContext context) {
 <p>${_h(L(context).helpManualOptionsDetails)}</p>
 <p>${_h(L(context).helpManualOptionsLocateFile)}</p>
 ''',
-      showGooglePlayLink: true,
       showGitHubReleasesLink: true,
       license: HelpPageLicense.gpl3,
       author: 'Алексей Парфёнов (Alexey Parfenov) aka ZXED',
