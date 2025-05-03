@@ -231,9 +231,9 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
   }
 
   @override
-  Future<void> updateQueue(List<MediaItem> newQueue) async {
+  Future<void> updateQueue(List<MediaItem> queue) async {
     List<FolderItem> newFolderItems = [];
-    for(var item in newQueue) {
+    for(var item in queue) {
       var folderItem = await FolderItem.fromUri(item.id);
       if(folderItem != null && !folderItem.isContainer())
         newFolderItems.add(folderItem);
@@ -262,7 +262,6 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
 
     var nextMediaItem = playbackState.value.playing ? mediaItem.valueOrNull : null;
     var isStopped = false;
-    var audioSource = player.audioSource;
     var hasChanged = false;
 
     for(var item in mediaItems) {
@@ -288,12 +287,10 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
       newQueue.remove(item);
       hasChanged = true;
 
-      if(audioSource is ConcatenatingAudioSource) {
-        var folderItemIndex = folderItems.indexWhere((folderItem) => folderItem.uri() == item.id);
-        if(folderItemIndex >= 0) {
-          audioSource.removeAt(folderItemIndex);
-          folderItems.removeAt(folderItemIndex);
-        }
+      var folderItemIndex = folderItems.indexWhere((folderItem) => folderItem.uri() == item.id);
+      if(folderItemIndex >= 0) {
+        player.removeAudioSourceAt(folderItemIndex);
+        folderItems.removeAt(folderItemIndex);
       }
     }
 
@@ -336,21 +333,18 @@ class AudioPlayerHandler extends BaseAudioHandler with QueueHandler {
     if(i < 0)
       return;
     var playlistItems = folderItems.map((item) => item.audioSource()).toList();
-    var playlist = ConcatenatingAudioSource(children: playlistItems);
     var playlistItem = playlistItems[i];
     var duration = durationFromAudioSource(playlistItem);
 
-    var curAudioSource = player.audioSource;
     if(
-      curAudioSource is ConcatenatingAudioSource &&
-      const ListEquality<AudioSource>().equals(playlist.children, curAudioSource.children) &&
+      const ListEquality<AudioSource>().equals(playlistItems, player.audioSources) &&
       player.processingState != ProcessingState.completed &&
       player.processingState != ProcessingState.idle
     ) {
-      player.seek(const Duration(), index: i);
+      player.seek(Duration.zero, index: i);
     } else {
       await player.stop();
-      var resultDuration = await player.setAudioSource(playlist, initialIndex: i);
+      var resultDuration = await player.setAudioSources(playlistItems, initialIndex: i);
       if(resultDuration != null)
         duration = resultDuration;
     }
