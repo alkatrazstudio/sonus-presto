@@ -21,7 +21,7 @@ class ShowcaseController {
   Completer<void>? future;
 
   Future<void> show() async {
-    var v = await Prefs.getInt(prefsPrefix + name);
+    var v = Prefs.getInt(prefsPrefix + name);
     if(v == version)
       return;
 

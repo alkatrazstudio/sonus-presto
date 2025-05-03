@@ -14,11 +14,16 @@ import '../models/playback_state_model.dart';
 import '../models/scheme_model.dart';
 import '../util/audio_player_handler.dart';
 import '../util/locale_helper.dart';
+import '../util/prefs.dart';
 import '../widgets/blocking_spinner.dart';
 import '../widgets/homepage.dart';
 import '../widgets/restartable_app.dart';
 
 void appMain() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  var prefsFuture = Prefs.init();
+
   audioHandler = await AudioService.init(
     builder: () => AudioPlayerHandler(),
     config: const AudioServiceConfig(
@@ -29,12 +34,12 @@ void appMain() async {
     )
   );
 
-  WidgetsFlutterBinding.ensureInitialized();
+  await prefsFuture;
 
   var schemeModel = SchemeModel();
-  await schemeModel.init();
+  schemeModel.init();
   var localeModel = LocaleModel();
-  await localeModel.init();
+  localeModel.init();
 
   runApp(MultiProvider(
     providers: [

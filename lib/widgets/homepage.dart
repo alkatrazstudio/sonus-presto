@@ -68,7 +68,7 @@ class HomePageState extends State<HomePage> {
   var isError = false;
 
   static Future rootDirAlert(BuildContext context) async {
-    if(await Prefs.getBool(HomePage.prefRootDirAlertShown))
+    if(Prefs.getBool(HomePage.prefRootDirAlertShown))
       return;
 
     await showDialog<void>(
@@ -93,7 +93,7 @@ class HomePageState extends State<HomePage> {
   }
 
   static Future<FolderItem> getRootDirItem(BuildContext context) async {
-    var rootPath = await Prefs.getString(HomePage.prefRootDir);
+    var rootPath = Prefs.getString(HomePage.prefRootDir);
     var dir = await DocumentTreeItem.fromUri(rootPath);
 
     try {
@@ -119,7 +119,7 @@ class HomePageState extends State<HomePage> {
   Future<bool> init(BuildContext context) async {
     rootDirItem = await getRootDirItem(context);
 
-    var curDirPath = await Prefs.getString(HomePage.prefCurDir, rootDirItem.uri());
+    var curDirPath = Prefs.getString(HomePage.prefCurDir, rootDirItem.uri());
     var curDirItem = await FolderItem.fromUri(curDirPath);
 
     while(true) {
@@ -144,7 +144,7 @@ class HomePageState extends State<HomePage> {
       curDirItem = curDirItem.parent();
     }
 
-    var curFilePath = await Prefs.getString(HomePage.prefCurFile, '');
+    var curFilePath = Prefs.getString(HomePage.prefCurFile, '');
     var curFileItem = await FolderItem.fromUri(curFilePath);
     if(curFileItem != null && curFileItem.isChildOf(rootDirItem) && !curFileItem.isContainer() && await curFileItem.exists()) {
       var startPromise = AudioPlayerHandler.startServiceIfNeeded();
@@ -182,7 +182,7 @@ class HomePageState extends State<HomePage> {
   }
 
   Future<List<FolderItem>> loadQueue(FolderItem curFileItem) async {
-    var queueDirUri = await Prefs.getString(HomePage.prefQueueDir);
+    var queueDirUri = Prefs.getString(HomePage.prefQueueDir);
     var queueDir = await FolderItem.fromUri(queueDirUri);
     if(
       queueDir != null &&
@@ -190,7 +190,7 @@ class HomePageState extends State<HomePage> {
       queueDir.isContainer() &&
       await queueDir.exists()
     ) {
-      var queueDirRecursive = await Prefs.getBool(HomePage.prefQueueDirRecursive);
+      var queueDirRecursive = Prefs.getBool(HomePage.prefQueueDirRecursive);
       if(queueDirRecursive) {
         if(curFileItem.isChildOf(queueDir)) {
           var children = await queueDir.recursiveChildren().toList();

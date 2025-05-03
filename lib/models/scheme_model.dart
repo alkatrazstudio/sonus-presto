@@ -25,10 +25,10 @@ class SchemeModel extends ChangeNotifier {
   FlexScheme scheme = defaultScheme;
   SchemeVariant schemeVariant = defaultSchemeVariant;
 
-  Future init() async {
-    var schemeName = await Prefs.getString(prefScheme);
+  void init() {
+    var schemeName = Prefs.getString(prefScheme);
     scheme = schemeFromName(schemeName);
-    var schemeVariantName = await Prefs.getString(prefSchemeVariant);
+    var schemeVariantName = Prefs.getString(prefSchemeVariant);
     schemeVariant = schemeVariantFromName(schemeVariantName);
     notifyListeners();
   }

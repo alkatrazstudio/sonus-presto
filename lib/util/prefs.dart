@@ -4,12 +4,23 @@
 import 'package:flutter/foundation.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
 
 class Prefs {
-  static Future<String> getString(String key, [String def = '']) async {
+  static late SharedPreferencesWithCache _prefs;
+
+  static Future<void> init() async {
+    await migrateLegacySharedPreferencesToSharedPreferencesAsyncIfNecessary(
+      legacySharedPreferencesInstance: await SharedPreferences.getInstance(),
+      sharedPreferencesAsyncOptions: const SharedPreferencesOptions(),
+      migrationCompletedKey: 'migrationCompleted'
+    );
+    _prefs = await SharedPreferencesWithCache.create(cacheOptions: const SharedPreferencesWithCacheOptions());
+  }
+
+  static String getString(String key, [String def = '']) {
     try{
-      var prefs = await SharedPreferences.getInstance();
-      return prefs.getString(key) ?? def;
+      return _prefs.getString(key) ?? def;
     }catch(e){
       debugPrint(e.toString());
       return def;
@@ -18,24 +29,22 @@ class Prefs {
 
   static Future<void> setString(String key, String val) async {
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       String? curVal;
       try {
-        curVal = prefs.getString(key);
+        curVal = _prefs.getString(key);
       }catch(e){
         debugPrint(e.toString());
       }
       if(curVal == null || curVal != val)
-        await prefs.setString(key, val);
+        await _prefs.setString(key, val);
     } catch(e) {
       debugPrint(e.toString());
     }
   }
 
-  static Future<bool> getBool(String key, [bool def = false]) async {
+  static bool getBool(String key, [bool def = false]) {
     try{
-      var prefs = await SharedPreferences.getInstance();
-      return prefs.getBool(key) ?? def;
+      return _prefs.getBool(key) ?? def;
     }catch(e){
       debugPrint(e.toString());
       return def;
@@ -44,24 +53,22 @@ class Prefs {
 
   static Future<void> setBool(String key, bool val) async {
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       bool? curVal;
       try {
-        curVal = prefs.getBool(key);
+        curVal = _prefs.getBool(key);
       }catch(e){
         debugPrint(e.toString());
       }
       if(curVal == null || curVal != val)
-        await prefs.setBool(key, val);
+        await _prefs.setBool(key, val);
     } catch (e) {
       debugPrint(e.toString());
     }
   }
 
-  static Future<int> getInt(String key, [int def = 0]) async {
+  static int getInt(String key, [int def = 0]) {
     try{
-      var prefs = await SharedPreferences.getInstance();
-      return prefs.getInt(key) ?? def;
+      return _prefs.getInt(key) ?? def;
     }catch(e){
       debugPrint(e.toString());
       return def;
@@ -70,15 +77,14 @@ class Prefs {
 
   static Future<void> setInt(String key, int val) async {
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
       int? curVal;
       try {
-        curVal = prefs.getInt(key);
+        curVal = _prefs.getInt(key);
       }catch(e){
         debugPrint(e.toString());
       }
       if(curVal == null || curVal != val)
-        await prefs.setInt(key, val);
+        await _prefs.setInt(key, val);
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -86,20 +92,9 @@ class Prefs {
 
   static Future remove(String key) async {
     try{
-      var prefs = await SharedPreferences.getInstance();
-      await prefs.remove(key);
+      await _prefs.remove(key);
     }catch(e){
       debugPrint(e.toString());
-    }
-  }
-
-  static Future<Set<String>> keys() async {
-    try{
-      var prefs = await SharedPreferences.getInstance();
-      return prefs.getKeys();
-    }catch(e){
-      debugPrint(e.toString());
-      return {};
     }
   }
 }

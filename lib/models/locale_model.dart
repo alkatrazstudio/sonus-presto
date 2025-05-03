@@ -11,8 +11,8 @@ class LocaleModel extends ChangeNotifier {
 
   String localeCode = systemLocaleCode;
 
-  Future init() async {
-    localeCode = await Prefs.getString(prefName, '');
+  void init() {
+    localeCode = Prefs.getString(prefName, '');
   }
 
   Future setLocaleCode(String code) async {
