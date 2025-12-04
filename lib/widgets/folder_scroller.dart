@@ -10,7 +10,6 @@ import '../folder_items/folder_item.dart';
 import '../models/dir_model.dart';
 import '../util/audio_player_handler.dart';
 import '../util/listenable_sub.dart';
-import '../util/swift_scroll_physics.dart';
 import '../widgets/folder_view.dart';
 
 class FolderScroller extends StatefulWidget {
@@ -141,7 +140,6 @@ class FolderScrollerState extends State<FolderScroller> {
     return PageView.builder(
       controller: pageController,
       itemCount: dirItems.length,
-      physics: const SwiftPageScrollPhysics(),
       itemBuilder: (context, index) {
         var dirItem = dirItems[index];
         var view = folderView(dirItem);
