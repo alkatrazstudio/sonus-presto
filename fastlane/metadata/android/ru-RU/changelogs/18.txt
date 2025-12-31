@@ -1,3 +1,3 @@
-- Удалены все ссылки на Google Play
+- Только внутренние изменения
 
 Полный список изменений: https://github.com/alkatrazstudio/sonus-presto/blob/master/CHANGELOG.md

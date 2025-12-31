@@ -1,6 +1,11 @@
 # SonusPresto - CHANGELOG
 
 
+## v1.0.0 (Jan 1, 2026)
+
+- Only internal changes
+
+
 ## v0.5.2 (May 3, 2025)
 
 - Removed: all references to Google Play
